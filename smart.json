@@ -1,0 +1,9 @@
+{
+  "packages": {
+    "bootstrap3-less": {},
+    "router": {},
+    "jquery-ui": {},
+    "momentjs": {},
+    "select2": {}
+  }
+}
