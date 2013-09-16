@@ -7,3 +7,7 @@ Tasklists = new Meteor.Collection("tasklists");
 //           list_id: String,
 //           timestamp: Number}
 Tasks = new Meteor.Collection("tasks");
+
+Projects = new Meteor.Collection("projects");
+
+//Uploads = new CollectionFS("uploads");

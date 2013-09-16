@@ -1,0 +1,400 @@
+html {
+  overflow: hidden;
+}
+
+body {
+  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-size: 13px;
+}
+
+.not-implemented {
+  display: none;
+}
+
+.auto-resize {
+  resize: none;
+}
+
+.text-lg {
+  font-size: 1.2em;  
+}
+
+.text-lg2x {
+  font-size: 2em;  
+}
+
+.nav-thin > ul > li > a {
+  padding: 10px 15px;
+}
+
+.aside-per47 {
+  width: 47%;
+}
+
+.po-hover-edit {
+  padding: 0 5px;
+  border-width: 1px;
+  border-color: transparent;
+  background-color: transparent;
+
+
+  &:focus {
+    background-color: #fff;
+  }
+
+  &:hover {
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.3)
+  }
+
+}
+
+.po-transparent {
+  background-color: transparent !important;
+}
+
+.po-task-list-header {
+  button {
+    margin-left: 8px;
+    &:last {
+      margin-left: 0;
+    }
+  }
+}
+
+.dropdown-menu.right {
+  right: 0;
+  left: auto;
+}
+
+.header {
+
+  .po-action-button-list {
+    margin-top: 10px;
+  }
+
+  .po-action-button {
+    display: inline;
+
+    a:focus {
+      outline: 0;
+    }
+
+    .dropdown-menu {
+      margin-top: 8px;
+      margin-right: 4px;
+      min-width: 20px;
+    }
+  }
+}
+.po-taskgroup {
+
+  .panel-heading {
+    padding: 7px 15px;
+  }
+  
+  .po-tg-title {
+    margin-left: -5px;
+
+    input {
+      font-size: 1.15em;
+      font-weight: bold;
+      height: 26px;
+    }
+  }
+
+  .po-tasks {
+    margin-bottom: 0;
+  }
+  margin-bottom: 0;
+
+  .po-task{
+    &:first-child {
+      border-top-right-radius: 0;
+      border-top-left-radius: 0;
+    }
+    &:last-child {
+      border-bottom-right-radius: 0;
+      border-bottom-left-radius: 0; 
+    }
+
+    &.active {
+      background-color: #f0f9ff !important;
+      border-color: #d7e9ff !important;
+
+      input[type=text] {
+        background-color: transparent;
+      }
+    }
+
+    border-width: 1px 0;
+    padding: 0px 1px 0 15px; 
+
+    input {
+      padding: 0;
+      height: 32px;
+      padding-left: 24px;
+      font-size: 1em;
+    }
+
+    .checkbox {
+      position: absolute;
+      margin: 0;
+      top: 7px;
+      padding-left: 0;
+
+      .checkbox-custom {
+        margin-left: 0;
+      }
+    }
+  }
+
+}
+
+.po-task-detail {
+  background-color: white;
+}
+
+.po-task-detail-header {
+  margin-left: -5px;
+  margin-bottom: 15px;
+}
+
+.po-task-bar {
+  li {
+    a {
+      padding: 6px;
+    }
+  }
+}
+
+.po-icon-col {
+  & > aside, & > section {
+    display: table-cell;
+    vertical-align: top;
+    height: 100%;
+    float: none;
+  }
+
+  & > aside > div {
+    width: 32px;
+  }
+ 
+  & > section {
+    width: 100%;
+  }
+
+}
+
+.po-task-title {
+
+  & > aside {
+    .checkbox {
+      margin-top: 5px;
+      padding-left: 0;
+      font-size: 1.5em;
+
+      .checkbox-custom {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .po-task-title-content {
+    textarea {
+      font-size: 1.8em;
+      line-height: 1.5em;
+    }
+    margin-bottom: 10px;
+  }
+}
+
+.po-task-body {
+  position: relative;
+}
+.po-task-file-dropzone {
+  /*display: none;*/
+
+  z-index: 9999;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  bottom: 0px;
+  background-color: rgba(245,245,245,0.93);
+  border: 4px dashed #aaa;
+  border-radius: 5px;
+
+
+  & > div {
+    display: table;
+    padding: 15px;
+    margin: auto;
+    font-size: 1.8em;
+    text-align: center;
+    height: 100%;
+
+    & > span {
+      display: table-cell;
+      vertical-align: middle;
+    }
+  }
+}
+.po-task-description {
+
+  .po-task-description-content {
+    padding-left: 3px;
+    textarea {
+      font-size: 1em;
+      line-height: 1.5em;
+    }
+  }
+}
+
+.po-task-activities {
+  & > section {
+    padding-left: 6px;
+  }
+
+  .po-task-activities-list {
+    margin-bottom: 0;
+  }
+
+  .po-task-activity-user {
+    margin-right: 3px;
+  }
+
+
+  .po-task-activity-timestamp {
+    padding-left: 8px;
+  }
+
+  .po-task-history {
+    font-size: 0.9em;
+  }
+
+  .po-task-history, .po-task-history a {
+    color: #979797;
+  }
+
+  .po-task-comment {
+    position: relative;
+    margin: 10px 0;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+
+
+    .po-task-activity-icon {
+      position: absolute;
+      left: -38px;
+      top: -1px;
+    }
+    .po-task-activity-content {
+      display: inline-block;
+    }
+
+    .po-task-activity-timestamp {
+      font-size: 0.9em;
+
+      padding-left: 0px;
+
+      &:before {
+        content: "";
+        display: block;
+      }
+    }
+  }
+
+}
+
+.po-as-textlink {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: inline;
+  line-height: 1.5;
+
+  &.disabled {
+    cursor: not-allowed;
+    pointer-events: none;
+    opacity: 0.4;
+  }
+}
+
+.po-task-files {
+  margin-top: -12px;
+
+  & > section {
+    padding-left: 4px;
+  }
+
+  .po-task-files-list {
+    margin-bottom: 0;
+  }
+
+  .po-task-file {
+    padding-bottom: 2px;
+    font-size: 0.9em;
+    
+    &:last-child {
+      padding-bottom: 0px;
+    }
+
+    &:hover button.close {
+      display: inline;
+    }
+
+    button.close {
+      display: none;
+      float: none;
+      line-height: 0.1;
+      i {
+        font-size: 10px;
+      }
+    }
+  }
+
+  & + hr {
+    margin-top: 8px;
+  }
+}
+
+
+/* TODO: Customized with a new css file */
+.po-task-tags {
+  & + hr {
+    margin-top:  5px;
+  }
+  aside {
+    div {
+      padding-top: 6px;
+    }
+  }
+  margin-top: 15px;
+
+  .selectize-control {
+    width: 100%;
+  }
+
+  .selectize-input {
+    border-width: 0;
+    box-shadow: none;
+    background-color: transparent;
+
+    .item {
+      font-size: 0.9em;
+
+    }
+  }
+}
+
+
+
+.po-task-newcomment {
+  textarea {
+    font-size: 1em;
+    line-height: 1.5em;
+    margin-bottom: 10px;
+  }
+}

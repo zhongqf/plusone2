@@ -1,1 +1,0 @@
-avalon.config.plugins['interpolate'](["<%", "%>"])

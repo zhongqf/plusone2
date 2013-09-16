@@ -1,0 +1,13 @@
+{
+  "packages": {
+    "bootstrap3-less": {},
+    "router": {},
+    "jquery-ui": {},
+    "momentjs": {},
+    "select2": {},
+    "collectionFS": {
+    	"git": "https://github.com/aldeed/Meteor-CollectionFS.git",
+        "branch": "master"
+    }
+  }
+}

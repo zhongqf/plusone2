@@ -12,7 +12,6 @@ bootstrap3-less
 underscore
 router
 less
-jquery-ui
 momentjs
 accounts-password
 accounts-ui
