@@ -6,7 +6,8 @@
       "router": {},
       "jquery-ui": {},
       "momentjs": {},
-      "select2": {}
+      "select2": {},
+      "fake": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -33,6 +34,11 @@
         "git": "https://github.com/nate-strauser/meteor-select2.git",
         "tag": "v3.4.0",
         "commit": "a731bdb357cadd840aa5d9a3e893ab3df097a09c"
+      },
+      "fake": {
+        "git": "https://github.com/subhog/meteor-fake.git",
+        "tag": "v0.2.1",
+        "commit": "c911ce5b6c11ce6222efdd83eda824201d2eb7df"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

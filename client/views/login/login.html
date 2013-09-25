@@ -1,0 +1,15 @@
+<template name="login">
+  {{loginButtons}}
+
+  <div>
+    <br>
+    <strong>[DEBUG] click to quick login</strong>
+    <ul>
+      {{#each users}}
+        <li>
+          <a href="#">{{userDisplayName this}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

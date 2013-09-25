@@ -1,0 +1,176 @@
+<template name="task_detail">
+  <aside class="aside-per47 po-task-detail b-l"> <!--class="aside-lg "-->
+    <section class="vbox">
+      <section class="scrollable">
+        <div class="wrapper">
+
+          
+          {{#if task}}
+
+          <section class="po-task-detail-header">
+            <ul class="nav nav-pills po-task-bar">
+              <li>
+                <a href="#">
+                  <i class="icon-user icon-large"></i>
+                  Tom Fischer
+                </a>
+              </li>
+              <li>
+                <a href="#" id="task-due-changer" data-date-format="yyyy-mm-dd" data-date="{{safeStandardTimestamp task.due}}">
+                  <i class="icon-calendar icon-large"></i>
+                  <span id="task-due">
+                    {{#if task.due}}
+                      {{shortDateOfTimestamp task.due}}
+                    {{else}}Due Date{{/if}}
+                  </span>
+                </a>
+              </li>
+
+
+              <li><a href="#"><i class="icon-tags"></i></a></li>
+              <li><a href="#"><i class="icon-paper-clip"></i></a></li>
+              <li><a href="#"><i class="icon-comment-alt"></i></a></li>
+            </ul>
+          </section>
+          <section class="po-task-title po-icon-col">
+            <aside>
+                <div class="checkbox">
+                <label class="checkbox-custom">
+                  <input type="checkbox" date-po-type="Task" data-po-key="{{task._id}}" data-po-property="done" name="checkboxA" {{#if task.done}} checked="checked" {{/if}} >
+                  <i class="icon-unchecked {{#if task.done}}checked{{/if}}"></i>
+                </label>
+              </div>
+
+            </aside>
+            <section>
+                <div class="po-task-title-content">
+                  <textarea rows="1" class="auto-resize form-control po-hover-edit" data-po-type="Task" data-po-key="{{task._id}}" data-po-property="text">{{editingText}}</textarea>
+                </div>
+            </section>
+          </section>
+          <section class="po-task-body">
+            <section class="po-task-file-dropzone hide">
+              <div id="dropzone">
+                <span>Drop a file here to attach to this task</span>  
+              </div>
+            </section>
+
+            <section class="po-task-description po-icon-col">
+              <aside><div>&nbsp;</div></aside>
+              <section>
+                  <div class="po-task-description-content">
+                    <textarea rows="1" class="auto-resize form-control po-hover-edit" placeholder="Description" data-po-type="Task" data-po-key="{{task._id}}" data-po-property="description">{{task.description}}</textarea>
+                  </div>
+              </section>
+            </section>
+
+            <section class="po-task-tags po-icon-col">
+              <aside>
+                <div>
+                  <i class="icon-tags icon-large"></i>
+                </div>
+              </aside>
+              <section>
+               <input type="text" id="task-tags" placeholder="Type to set tags" value="{{taskTags}}" class="no-border">
+               </section>
+            </section>
+            <hr>
+
+            {{#if taskHasFiles}}
+              <section class="po-task-files po-icon-col">
+                <aside>
+                  <div>
+                    <i class="icon-paper-clip icon-large"></i>
+                  </div>
+                </aside>
+                <section>
+                  <ul class="po-task-files-list list-unstyled">
+
+                    {{#each taskFiles}}
+                      <li class="po-task-file">
+                        <i class="icon-file-alt icon-large"></i>
+                          {{#if cfsIsComplete "Uploads"}}
+                            {{cfsDownloadButton "Uploads" class="po-as-textlink" content=filename}}
+                          {{else}}
+                            {{cfsDownloadButton "Uploads" class="po-as-textlink disabled" content=filename}}
+                            {{cfsQueueProgressBar "Uploads"}}
+                          {{/if}}
+                        <button type="button" class="close">
+                          <i class="icon-remove"></i>
+                        </button>
+                      </li>
+                    {{/each}}
+                  </ul>
+                 </section>
+              </section>
+
+              <hr>
+
+            {{/if}}
+
+            <section class="po-task-activities po-icon-col">
+              <aside>
+                <div>&nbsp;</div>
+              </aside>
+              <section>
+                <ul class="po-task-activities-list list-unstyled">
+                  
+                  {{#each taskActivities}}
+
+
+                  <li class="po-task-activity po-task-{{type}}">
+                    {{#if isComment}}
+                      <div class="po-task-activity-icon">
+                        <i class="icon-comment-alt icon-large"></i>
+                      </div>
+                    {{/if}}
+                    <span class="po-task-activity-content">
+
+                      <a href='#' class='po-task-activity-user'><strong>{{userDisplayName user_id}}</strong></a>
+                      
+                      {{text}}
+
+                      <span class="po-task-activity-timestamp" data-toggle="tooltip" data-placement="bottom" title="" data-original-title="{{fullDateOfTimestamp timestamp}}">
+                      {{shortDateOfTimestamp timestamp}}
+                      </span>
+                    </span>
+    
+                  </li>
+
+                  {{/each}}
+
+                </ul>
+              </section>
+            </section>
+            <hr>
+            <section class="po-task-newcomment po-icon-col">
+              <aside>
+                <div>
+                  <i class="icon-comment-alt icon-large"></i>
+                </div>
+              </aside>
+              <section>
+                <div class="po-task-newcomment-content">
+                  <textarea rows="3" class="auto-resize form-control po-hover-edit" placeholder="Write comment..." data-po-type="Task" data-po-key="{{_id}}" data-po-property="comment"></textarea>
+
+                  {{#if newCommentEditingMode}}
+
+                  <button class="po-task-add-comment btn btn-success btn-sm">Comment</button>
+
+                  {{/if}}
+
+                </div>
+              </section>
+            </section>
+          </section>
+
+          {{else}}
+
+            <p class="text-lg">Select a task to view its details.</p>
+
+          {{/if}}
+        </div>
+      </section>
+    </section>
+  </aside>
+</template>

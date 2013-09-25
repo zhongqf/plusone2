@@ -64,8 +64,19 @@ Meteor.startup ->
   if Meteor.users.find().count() == 0
     Accounts.createUser
       email: "universac@qq.com"
-      username: "Jane Fishcer"
-      password: "hello"
+      username: "universac"
+      password: "123456"
+      profile:
+        name: "Jane Fishcer"
+
+    _(10).times (n)->
+      user = Fake.user()
+      Accounts.createUser
+        email: user.email
+        username: (user.name + "." + user.surname).toLowerCase()
+        password: "123456"
+        profile:
+          name: user.name + " " + user.surname
 
 
   if Tasklists.find().count() == 0
