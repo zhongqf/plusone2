@@ -95,14 +95,16 @@
             <a href="" data-toggle="dropdown">
               <i class="icon-group"></i>
               &nbsp;
-              <b>Big bang</b>
+              {{#with currentProject}}
+              <b>{{name}}</b>
+              {{/with}}
               <span class="caret caret-white"></span>
             </a>
-            <ul class="dropdown-menu m-t-sm animated fadeInDown">
+            <ul class="dropdown-menu m-t-sm animated fadeInDown" id="project-changer">
               <span class="arrow top"></span>
                 {{#each projects}}
                   <li>
-                    <a href="#">{{name}}</a>
+                    <a href="#" data-po-key="{{_id}}" data-po-type="Project" data-po-property="name">{{name}}</a>
                   </li>
                 {{/each}}
             </ul>

@@ -34,11 +34,11 @@
 
               </li>
               <li>
-                <a href="#" id="task-due-changer" data-date-format="yyyy-mm-dd" data-date="{{safeStandardTimestamp task.due}}">
+                <a href="#" id="task-due-changer" data-date-format="yyyy-mm-dd" data-date="{{safeStandardTimestamp task.dueAt}}">
                   <i class="icon-calendar icon-large"></i>
                   <span id="task-due">
-                    {{#if task.due}}
-                      {{shortDateOfTimestamp task.due}}
+                    {{#if task.dueAt}}
+                      {{shortDateOfTimestamp task.dueAt}}
                     {{else}}Due Date{{/if}}
                   </span>
                 </a>
@@ -144,7 +144,7 @@
                     {{/if}}
                     <span class="po-task-activity-content">
 
-                      <a href='#' class='po-task-activity-user'><strong>{{userDisplayName user_id}}</strong></a>
+                      <a href='#' class='po-task-activity-user'><strong>{{userDisplayName userId}}</strong></a>
                       
                       {{text}}
 

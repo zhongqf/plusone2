@@ -1,16 +1,16 @@
 
 #Task list
 Template.tasklists.hasOrphanTasks = ->
-  return Tasks.find({list_id: null}).count() > 0
+  return Tasks.find({tasklistId: null}).count() > 0
 
 Template.tasklists.orphanTasks = ->
-  return Tasks.find({list_id: null}, {sort: {timestamp: -1}})
+  return Tasks.find({tasklistId: null}, {sort: {timestamp: -1}})
 
 Template.tasklists.tasklists =  ->
   return Tasklists.find({},{sort: {timestamp: -1}})
 
 Template.tasklists.tasksOf = (list)->
-  return Tasks.find({list_id: list._id}, {sort: {timestamp: -1}})
+  return Tasks.find({tasklistId: list._id}, {sort: {timestamp: -1}})
 
 Template.tasklists.events 
   'blur .po_tasklist_name':  (event, templ)->

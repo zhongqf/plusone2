@@ -5,21 +5,21 @@ Template.task_detail.available_users = ->
   return Meteor.users.find()
 
 Template.task_detail.assigned_user = ->
-  task = Tasks.findOne({_id: Session.get("current_task_id")});
-  return Meteor.users.findOne({_id: task.assigned_user_id})
+  task = Tasks.findOne({_id: Session.get("currentTaskId")});
+  return Meteor.users.findOne({_id: task.assigneeId})
 
 Template.task_detail.task = ->
   return Tasks.findOne
-    _id: Session.get("current_task_id")
+    _id: Session.get("currentTaskId")
 
 Template.task_detail.editingText = ->
-  task = Tasks.findOne({_id: Session.get("current_task_id")});
+  task = Tasks.findOne({_id: Session.get("currentTaskId")});
   sed = Session.get("editing_text");
   return  sed or (task and task.text);
 
 
 Template.task_detail.taskTags = ->
-  task = Tasks.findOne({_id: Session.get("current_task_id")});
+  task = Tasks.findOne({_id: Session.get("currentTaskId")});
 
   if task.tags
     return task.tags.join(',')
@@ -27,23 +27,27 @@ Template.task_detail.taskTags = ->
     return [] 
 
 Template.task_detail.taskActivities = ->
-  task = Tasks.findOne({_id: Session.get("current_task_id")});
-  histories = _.map task.histories, 
-    (el)-> _.extend el, 
-      type: "history"
-      isComment: false
-  comments = _.map task.comments, (el)-> _.extend(el, {type: "comment", isComment: true})
-  result = _.union(histories, comments)
-  return _.sortBy result, (el)-> el.timestamp
+  #task = Tasks.findOne({_id: Session.get("currentTaskId")});
+  #histories = _.map task.histories,
+  #  (el)-> _.extend el,
+  #    type: "history"
+  #    isComment: false
+  #comments = _.map task.comments, (el)-> _.extend(el, {type: "comment", isComment: true})
+  #result = _.union(histories, comments)
+  #return _.sortBy result, (el)-> el.timestamp
+
+  comments = Comments.find({objectId: Session.get('currentTaskId')}).fetch()
+  comments = _.map comments, (c)-> _.extend(c, {type: 'comment', isComment: true})
+  return comments
 
 Template.task_detail.newCommentEditingMode = ->
   return Session.get("focused_on_new_comment")
 
 Template.task_detail.taskFiles = ->
-  #Uploads.find({metadata: {task_id: Session.get("current_task_id")}})
+  #Uploads.find({metadata: {task_id: Session.get("currentTaskId")}})
 
 Template.task_detail.taskHasFiles = ->
-  #Uploads.find({metadata: {task_id: Session.get("current_task_id")}}).count() > 0
+  #Uploads.find({metadata: {task_id: Session.get("currentTaskId")}}).count() > 0
 
 Template.task_detail.events
 
@@ -57,20 +61,20 @@ Template.task_detail.events
 
   'blur .po-task-title-content textarea':  (event)->
     Session.set("editing_text", null)   
-    Tasks.update({_id: Session.get("current_task_id")}, {$set: {text: event.currentTarget.value}})
+    Tasks.update({_id: Session.get("currentTaskId")}, {$set: {text: event.currentTarget.value}})
 
   'keyup .po-task-title-content textarea': (event)->
     Session.set("editing_text", event.currentTarget.value)
 
   'blur .po-task-description-content textarea': (event) ->
-    Tasks.update({_id: Session.get("current_task_id")}, {$set: {description: event.currentTarget.value}});
+    Tasks.update({_id: Session.get("currentTaskId")}, {$set: {description: event.currentTarget.value}});
 
   #'click button.delete_task': (event, templ)->
-  #  Tasks.remove({_id: Session.get("current_task_id")})
+  #  Tasks.remove({_id: Session.get("currentTaskId")})
   
   'click button.po-task-add-comment':   (event, templ)->
     Tasks.update
-      _id: Session.get("current_task_id"), 
+      _id: Session.get("currentTaskId"),
         $push: 
           comments:
             user_id: Meteor.userId()
@@ -87,27 +91,27 @@ Template.task_detail.events
       Session.set("focused_on_new_comment", false)
 
   'change .po-task-title input[type="checkbox"]': (event, templ) ->
-    task = Tasks.findOne({_id: Session.get("current_task_id")});
+    task = Tasks.findOne({_id: Session.get("currentTaskId")});
     Tasks.update({_id: task._id}, {$set: {done: !task.done}});
 
   'click #task-assignee-changer a': (event, templ) ->
     user_id = event.currentTarget.getAttribute("data-po-key")
     Tasks.update
-      _id: Session.get("current_task_id"),
+      _id: Session.get("currentTaskId"),
         $set:
-          assigned_user_id: user_id
+          assigneeId: user_id
 
   'click #task-assignee button': (event, templ) ->
     Tasks.update
-      _id: Session.get("current_task_id"),
+      _id: Session.get("currentTaskId"),
         $unset:
-          assigned_user_id: ""
+          assigneeId: ""
 
 Template.task_detail.rendered = ->
   $('textarea.auto-resize').autosize();
   $('[data-toggle=tooltip]').tooltip({delay:{show:300}});
 
-  #dropfile('dropzone', Uploads, {task_id: Session.get("current_task_id")} );
+  #dropfile('dropzone', Uploads, {task_id: Session.get("currentTaskId")} );
 
   $(".po-task-body")
     .on "dragenter", (event)->
@@ -147,21 +151,21 @@ Template.task_detail.rendered = ->
     onItemAdd: (value, $item)->
       if value and value.length
         Tasks.update
-          _id: Session.get("current_task_id"),
+          _id: Session.get("currentTaskId"),
             $push:
               tags: value
     onItemRemove: (value)->
       if value and value.length
         Tasks.update
-          _id: Session.get("current_task_id"),
+          _id: Session.get("currentTaskId"),
             $pull:
               tags: value
 
   $('#task-due-changer').datepicker()
     .on 'changeDate', (ev)->
-      task = Tasks.findOne({_id: Session.get("current_task_id")})
+      task = Tasks.findOne({_id: Session.get("currentTaskId")})
       date = new Date(ev.date).getTime()
-      Tasks.update({_id: task._id}, {$set: {due: date}})
+      Tasks.update({_id: task._id}, {$set: {dueAt: date}})
       $('#task-due-changer').datepicker('hide');
 
  
