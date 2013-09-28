@@ -1,6 +1,13 @@
 
 
 #Task detail
+Template.task_detail.available_users = ->
+  return Meteor.users.find()
+
+Template.task_detail.assigned_user = ->
+  task = Tasks.findOne({_id: Session.get("current_task_id")});
+  return Meteor.users.findOne({_id: task.assigned_user_id})
+
 Template.task_detail.task = ->
   return Tasks.findOne
     _id: Session.get("current_task_id")
@@ -83,8 +90,18 @@ Template.task_detail.events
     task = Tasks.findOne({_id: Session.get("current_task_id")});
     Tasks.update({_id: task._id}, {$set: {done: !task.done}});
 
+  'click #task-assignee-changer a': (event, templ) ->
+    user_id = event.currentTarget.getAttribute("data-po-key")
+    Tasks.update
+      _id: Session.get("current_task_id"),
+        $set:
+          assigned_user_id: user_id
 
-
+  'click #task-assignee button': (event, templ) ->
+    Tasks.update
+      _id: Session.get("current_task_id"),
+        $unset:
+          assigned_user_id: ""
 
 Template.task_detail.rendered = ->
   $('textarea.auto-resize').autosize();

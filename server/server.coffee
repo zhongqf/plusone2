@@ -13,6 +13,7 @@
 
 
 #/ if the database is empty on server start, create some sample data.
+currentUserId = null
 
 Meteor.startup ->
 
@@ -31,7 +32,7 @@ Meteor.startup ->
             _id: id, 
               $push: 
                 histories: 
-                  user_id: this.userId || Meteor.users.findOne({})._id
+                  user_id: Meteor.userId || Meteor.users.findOne({})._id
                   text: "completed this task" 
                   timestamp: new Date().getTime()
         else
@@ -40,6 +41,30 @@ Meteor.startup ->
               $pull:
                 histories:
                   text: "completed this task"
+      if 'assigned_user_id' of fields
+        console.log fields
+        if fields['assigned_user_id']
+          assigned_user = Meteor.users.findOne({_id: fields['assigned_user_id']})
+          Tasks.update
+            _id: id,
+              $set:
+                old_assigned_user_id: fields['assigned_user_id']
+              $push:
+                histories:
+                  user_id: Meteor.userId || Meteor.users.findOne({})._id
+                  text: "assigned to " + assigned_user.username
+                  timestamp: new Date().getTime()
+        else
+          old_assigned_user_id = Tasks.findOne({_id:id}).old_assigned_user_id
+          old_assigned_user = Meteor.users.findOne({_id: old_assigned_user_id})
+          Tasks.update
+            _id: id,
+              $push:
+                histories:
+                  user_id: Meteor.userId || Meteor.users.findOne({})._id
+                  text: "unassigned from " + old_assigned_user.username
+                  timestamp: new Date().getTime()
+
 
     "added": (id, fields)->
       created = _.find fields.histories, (history)->  history.text == "created task"
@@ -48,7 +73,7 @@ Meteor.startup ->
           _id: id, 
             $push: 
               histories: 
-                user_id: this.userId || Meteor.users.findOne({})._id
+                user_id: Meteor.userId || Meteor.users.findOne({})._id
                 text: "created task", 
                 timestamp: new Date().getTime()
 

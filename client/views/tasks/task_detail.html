@@ -10,10 +10,28 @@
           <section class="po-task-detail-header">
             <ul class="nav nav-pills po-task-bar">
               <li>
-                <a href="#">
+                <a id="task-assignee" href="#" data-toggle="dropdown">
                   <i class="icon-user icon-large"></i>
-                  Tom Fischer
+                  {{#if assigned_user}}
+                    {{userDisplayName assigned_user}}
+                    
+                    <button type="button" class="close">
+                      <i class="icon-remove"></i>
+                    </button>
+
+                  {{else}}
+                    Unassigned
+                  {{/if}}
                 </a>
+                <ul id="task-assignee-changer" class="dropdown-menu m-t-sm animated ">
+                  <span class="arrow top"></span>
+                  {{#each available_users}}
+                    <li>
+                      <a href="#" data-po-type="User" data-po-property="name" data-po-key="{{_id}}">{{userDisplayName this}}</a>
+                    </li>
+                  {{/each}}
+                </ul>
+
               </li>
               <li>
                 <a href="#" id="task-due-changer" data-date-format="yyyy-mm-dd" data-date="{{safeStandardTimestamp task.due}}">

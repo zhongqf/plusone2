@@ -14,6 +14,9 @@ Icon
 # SublimeText project files
 *.sublime-workspace
 
+# WebStorm project files
+.idea
+
 
 # Node.js files
 lib-cov
