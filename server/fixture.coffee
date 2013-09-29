@@ -72,8 +72,9 @@ if Projects.find().count() == 0
           projectId: project
           tasklistId: list
           text: Fake.sentence()
+          done: (_.random(0,2) == 0)
           timestamp: faketime()
-          createorId: random_user_id()
+          creatorId: random_user_id()
           assigneeId: random_user_id()
           dueAt: new Date().getTime() + _.random(3,30) * 3600 * 24 * 1000
           tags: random_tags()

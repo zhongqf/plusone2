@@ -12,21 +12,10 @@ Template.tasklists.tasklists =  ->
 Template.tasklists.tasksOf = (list)->
   return Tasks.find({tasklistId: list._id}, {sort: {timestamp: -1}})
 
-Template.tasklists.events 
+Template.tasklists.events
   'blur .po_tasklist_name':  (event, templ)->
     Tasklists.update
-      _id: this._id, 
+      _id: this._id,
         $set:
           name: event.currentTarget.value
 
-  'click #new_tasklist': (event, templ)->
-    tl = Tasklists.insert
-      name: ""
-      timestamp: new Date().getTime()
-    setFocusObject(tl,"Tasklist")
-
-  'click #new_task': (event, templ)->
-    t = Tasks.insert
-      text: ""
-      timestamp: new Date().getTime()
-    setFocusObject(t,"Task")

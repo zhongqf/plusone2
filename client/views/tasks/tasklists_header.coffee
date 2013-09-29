@@ -7,9 +7,10 @@ Template.tasklists_header.events
     Session.set("lastestObjectType", "Tasklist")
 
   'click #new_task': (event, templ)->
-    t = Tasks.insert
+    t = Meteor.call "createTask",
+      projectId: Session.get("currentProjectId")
       text: ""
-      timestamp: new Date().getTime()
+
     Session.set("lastestObjectID", t)
     Session.set("lastestObjectType", "Task")
 

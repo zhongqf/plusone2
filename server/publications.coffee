@@ -31,3 +31,6 @@ Meteor.publish "allUsers", ->
       username: 1
       emails: 1
       profile: 1
+
+Meteor.publish "taskActivity", (taskId)->
+  return Activities.find({objectId: taskId});
