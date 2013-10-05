@@ -8,21 +8,23 @@ authenticatedUser = function(){
 }
 
 buildChangeObject = function(oldObj, newObj){
+
     var oldKeys = _.keys(oldObj);
-    var newKeys = _.keys(newObj);
 
-    var iteKeys = oldKeys.length < newKeys.length ? oldKeys : newKeys;
-
-    var sameKeys = [];
-
-    _.each(iteKeys, function(key){
-        if (oldObj[key] === newObj[key])
-            sameKeys.push(key);
+    var omitKeys = []
+    _.each(oldKeys, function(key){
+        if ((oldObj[key] === newObj[key]) || (! _.has(newObj, key)))
+            omitKeys.push(key);
     });
 
-    return {
-        before: _.omit(oldObj, sameKeys),
-        after: _.omit(newObj, sameKeys)
+    result = {
+        before: _.omit(oldObj, omitKeys),
+        after: _.omit(newObj, omitKeys)
     };
+
+    console.log("changeObject:")
+    console.log(result);
+
+    return result;
 }
 

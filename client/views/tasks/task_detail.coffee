@@ -6,20 +6,19 @@ Template.task_detail.available_users = ->
 
 Template.task_detail.assigned_user = ->
   task = Tasks.findOne({_id: Session.get("currentTaskId")});
-  return Meteor.users.findOne({_id: task.assigneeId})
+  return Meteor.users.findOne(task.assigneeId)
 
 Template.task_detail.task = ->
-  return Tasks.findOne
-    _id: Session.get("currentTaskId")
+  return Tasks.findOne Session.get("currentTaskId")
 
 Template.task_detail.editingText = ->
-  task = Tasks.findOne({_id: Session.get("currentTaskId")});
+  task = Tasks.findOne(Session.get("currentTaskId"));
   sed = Session.get("editing_text");
   return  sed or (task and task.text);
 
 
 Template.task_detail.taskTags = ->
-  task = Tasks.findOne({_id: Session.get("currentTaskId")});
+  task = Tasks.findOne( Session.get("currentTaskId"));
 
   if task.tags
     return task.tags.join(',')
@@ -61,15 +60,20 @@ Template.task_detail.events
 
   'blur .po-task-title-content textarea':  (event)->
     Session.set("editing_text", null)
-    Meteor.call "updateTask", Session.get("currentTaskId"),
-      text: event.currentTarget.value
+    task = Tasks.findOne Session.get("currentTaskId")
+
+    if task.text != event.currentTarget.value
+      Meteor.call "updateTask", task._id,  text: event.currentTarget.value
 
   'keyup .po-task-title-content textarea': (event)->
     Session.set("editing_text", event.currentTarget.value)
 
   'blur .po-task-description-content textarea': (event) ->
-     Meteor.call "updateTask", Session.get("currentTaskId"),
-      description: event.currentTarget.value
+    task = Tasks.findOne Session.get("currentTaskId")
+
+    if task.description != event.currentTarget.value
+      Meteor.call "updateTask", task._id,
+        description: event.currentTarget.value
 
   #'click button.delete_task': (event, templ)->
   #  Tasks.remove({_id: Session.get("currentTaskId")})
@@ -94,12 +98,17 @@ Template.task_detail.events
 
   'click #task-assignee-changer a': (event, templ) ->
     user_id = event.currentTarget.getAttribute("data-po-key")
-    Meteor.call "updateTask", Session.get("currentTaskId"),
-      assigneeId: user_id
+    task = Tasks.findOne Session.get("currentTaskId")
+
+    if task.assigneeId != user_id
+      Meteor.call "updateTask", Session.get("currentTaskId"),
+        assigneeId: user_id
 
   'click #task-assignee button': (event, templ) ->
-    Meteor.call "updateTask", Session.get("currentTaskId"),
-      assigneeId: ""
+    task = Tasks.findOne Session.get("currentTaskId")
+    if task.assigneeId
+      Meteor.call "updateTask", Session.get("currentTaskId"),
+        assigneeId: ""
 
 Template.task_detail.rendered = ->
   $('textarea.auto-resize').autosize();
@@ -155,7 +164,8 @@ Template.task_detail.rendered = ->
 
   $('#task-due-changer').datepicker()
     .on 'changeDate', (ev)->
-      Meteor.call "updateTask", Session.get("currentTaskId"),
+      task = Tasks.findOne Session.get("currentTaskId")
+      Meteor.call "updateTask", task._id,
         dueAt: new Date(ev.date).getTime()
 
       $('#task-due-changer').datepicker('hide');

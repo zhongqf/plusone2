@@ -26,10 +26,12 @@ Meteor.methods({
         var oldValue = Tasks.findOne(taskId, searchCondition);
         var newValue = _.pick(taskAttrs, whitelist);
 
-        Tasks.update({_id: taskId}, {$set: newValue});
-
         var actionObject = buildChangeObject(oldValue, newValue);
-        logTaskActivity('changeTask', taskId, user, actionObject);
+
+        if(actionObject.before !== actionObject.after){
+            Tasks.update({_id: taskId}, {$set: newValue});
+            logTaskActivity('changeTask', taskId, user, actionObject);
+        }
     },
 
 

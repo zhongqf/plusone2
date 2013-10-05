@@ -16,8 +16,11 @@ Template.task_item.events
   'blur input[type=text]':  (event, templ)->
     Session.set("editing_text", null);
 
-    Meteor.call "updateTask", this._id,
-      text: event.currentTarget.value
+    newText = event.currentTarget.value
+
+    if (newText != this.text)
+      Meteor.call "updateTask", this._id,
+        text: newText
 
   'keyup input[type=text]' : (event, templ)->
     Session.set("editing_text", event.currentTarget.value);
