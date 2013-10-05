@@ -5,6 +5,7 @@
     "jquery-ui": {},
     "momentjs": {},
     "select2": {},
-    "fake": {}
+    "fake": {},
+    "mini-pages": {}
   }
 }
