@@ -7,7 +7,8 @@
       "jquery-ui": {},
       "momentjs": {},
       "select2": {},
-      "fake": {}
+      "fake": {},
+      "mini-pages": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -32,13 +33,18 @@
       },
       "select2": {
         "git": "https://github.com/nate-strauser/meteor-select2.git",
-        "tag": "v3.4.0",
-        "commit": "a731bdb357cadd840aa5d9a3e893ab3df097a09c"
+        "tag": "v3.4.3",
+        "commit": "fbe1f33800c90ecdfdcec529970382f8781e3988"
       },
       "fake": {
         "git": "https://github.com/subhog/meteor-fake.git",
         "tag": "v0.2.1",
         "commit": "c911ce5b6c11ce6222efdd83eda824201d2eb7df"
+      },
+      "mini-pages": {
+        "git": "https://github.com/cmather/meteor-mini-pages.git",
+        "tag": "v0.3.2",
+        "commit": "4d885ffb6d0108ee2e47a13a6296c98a2f7b5059"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

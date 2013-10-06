@@ -1,46 +1,16 @@
 <template name="tasklists">
-  <aside class="bg-light lter">
-    <section class="vbox">
+  <section class="vbox">
 
-      {{> tasklists_header }}
-      
-      <section class="scrollable">
+    {{> tasklists_header }}
 
-        {{#if hasOrphanTasks}}
-
-          <section class="po-taskgroup">
-            <ul class="list-group alt po-tasks">
-              {{#each orphanTasks}}
-                {{> task_item}}
-              {{/each}}
-            </ul>
-          </section>
-        {{/if}}
-
-        {{#each tasklists}}
-
-          <section class="po-taskgroup">
-            <header class="panel-heading lter">
-              <div class="clearfix">
-                  <div class="po-tg-title">
-                    <input type="text" class="po_tasklist_name form-control po-hover-edit tobe_focus" data-po-type="Tasklist" data-po-key="{{_id}}" data-po-property="name" value="{{name}}">    
-                  </div>
-              </div>
-            </header>
-
-            <ul class="list-group alt po-tasks">
-              {{#each tasksOf this}}
-
-                {{> task_item}}
-
-              {{/each}}
-            </ul>
-          </section>
-
-        {{/each}}
-
-      </section>
+    <section class="scrollable">
+      <div class="wrapper">
+        {{#each tasklists }}
+          {{> tasklist }}
+        {{/each }}
+      </div>
     </section>
-  </aside>
-  
+
+ </section>
+
 </template>

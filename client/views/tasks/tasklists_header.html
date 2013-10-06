@@ -1,27 +1,11 @@
 <template name="tasklists_header">
-  <header class="po-tasklist-header header bg-light lter bg-gradient b-b">
-    <div class="po-action-button-list pull-right">
-      <div class="po-action-button">
-        <a href="#" class="btn btn-success btn-sm" data-toggle="dropdown">
-          <i class="icon-plus"></i>
-          NEW
-        </a>
-        <ul class="dropdown-menu m-t-sm right">
-          <li>
-            <a href="" id="new_task">New task</a>
-          </li>
-          <li>
-            <a href="" id="new_tasklist">New task list</a>
-          </li>
-        </ul>
-      </div>
-      <div class="po-action-button">
-        <a href="#" class="btn btn-white btn-sm" id="new_tasklist">
-          <i class="icon-reorder"></i>
-        </a>
-      </div>
-    </div>
 
-    <p><strong>Tasks</strong></p>
+  <header class="header bg-light lter bg-gradient b-b">
+    <button class="btn btn-success btn-sm pull-right" id="new-task">
+      <i class="icon-plus"></i>
+      Task List
+    </button>
+    <p class="h4">Tasks</p>
   </header>
+
 </template>

@@ -1,18 +1,16 @@
 <template name="tasks">
   <section class="hbox stretch">
-    
-    {{> main_navigation}}
 
-    <section id="content">
-      <section class="hbox stretch" id="tasks_app">
-        {{> tasklists}}
-        {{> task_detail}}
-      </section>
-    </section>
+    <aside>
+      {{> tasklists }}
+    </aside>
+
+    <aside class="bg-white b-l">
+      {{> task_detail }}
+    </aside>
+
   </section>
 </template>
-
-
 
 
 

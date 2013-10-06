@@ -1,0 +1,106 @@
+<template name="nav_main">
+  <section class="vbox scrollable">
+    <header class="bg-danger nav-bar">
+      <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
+        <i class="icon-reorder"></i>
+      </a>
+      <a href="#" class="nav-brand" data-toggle="fullscreen">+one</a>
+      <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user">
+        <i class="icon-comment-alt"></i>
+      </a>
+    </header>
+    <section class="w-f">
+      <div class="bg-dark lter nav-user hidden-xs pos-rlt">
+        <div class="nav-avatar pos-rlt">
+          <a href="/me" class="thumb-sm avatar">
+            <img src="images/avatar.jpg" alt="" class="">
+            <span class="caret caret-white"></span>
+          </a>
+          <div class="visible-xs m-t m-b">
+            <a href="#" class="h3">John.Smith</a>
+            <p><i class="icon-map-marker"></i> London, UK</p>
+          </div>
+        </div>
+        <div class="nav-msg">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+            <b class="badge badge-white count-n">2</b>
+          </a>
+          <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
+            <div class="arrow left"></div>
+            <section class="panel bg-white">
+              <header class="panel-heading">
+                <strong>You have <span class="count-n">2</span> notifications</strong>
+              </header>
+              <div class="list-group">
+                <a href="#" class="media list-group-item">
+                    <span class="pull-left thumb-sm">
+                      <img src="images/avatar.jpg" alt="John said" class="img-circle">
+                    </span>
+                    <span class="media-body block m-b-none">
+                      Use awesome animate.css<br>
+                      <small class="text-muted">28 Aug 13</small>
+                    </span>
+                </a>
+                <a href="#" class="media list-group-item">
+                    <span class="media-body block m-b-none">
+                      1.0 initial released<br>
+                      <small class="text-muted">27 Aug 13</small>
+                    </span>
+                </a>
+              </div>
+              <footer class="panel-footer text-sm">
+                <a href="#" class="pull-right"><i class="icon-cog"></i></a>
+                <a href="#">See all the notifications</a>
+              </footer>
+            </section>
+          </section>
+        </div>
+      </div>
+      <nav class="nav-primary hidden-xs">
+        <ul class="nav">
+          <li>
+            <a href="#">
+              <i class="icon-search"></i>
+              <span>Search</span>
+            </a>
+          </li>
+          <li>
+            <a href="/tasks">
+              <i class="icon-suitcase"></i>
+              <span>Projects</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="icon-time"></i>
+              <span>Timeline</span>
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="icon-calendar"></i>
+              <span>Calendar</span>
+            </a>
+
+          </li>
+          <li>
+            <a href="#">
+              <b class="badge bg-primary pull-right">3</b>
+              <i class="icon-reorder"></i>
+              <span>Everything</span>
+            </a>
+          </li>
+
+          <li>
+            <a href="#">
+              <i class="icon-group"></i>
+              <span>People</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </section>
+
+  </section>
+
+</template>
