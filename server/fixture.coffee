@@ -51,6 +51,7 @@ if Projects.find().count() == 0
       name: words()
       ownerId: ownerId
       timestamp: faketime()
+      description: Fake.paragraph()
       public: (_.random(0,1) == 0)
 
     members = _.chain(user_ids).shuffle().head(_.random(3,6)).value()

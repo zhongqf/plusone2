@@ -1,17 +1,5 @@
-<template name="old_task_item">
-  <li class="list-group-item po-task {{#if taskIsActive}}active{{/if}}">
-    <div class="checkbox">
-      <label class="checkbox-custom">
-        <input type="checkbox" name="checkboxA" date-po-type="Task" data-po-key="{{_id}}" data-po-property="done" {{#if done}} checked="checked" {{/if}} >
-        <i class="icon-unchecked {{#if done}}checked{{/if}}"></i>
-      </label>
-    </div>
-    <input type="text" data-po-type="Task" data-po-key="{{_id}}" data-po-property="text" class="no-border form-control tobe_focus" value="{{editingText}}">
-  </li>
-</template>
-
 <template name="tasklist_item">
-  <li class="list-group-item">
+  <li class="list-group-item {{#if taskIsActive}}active{{/if}}">
     <div class="checkbox">
       <label class="checkbox-custom">
         <input type="checkbox" name="checkboxA" date-po-type="Task" data-po-key="{{_id}}" data-po-property="done" {{#if done}} checked="checked" {{/if}} >

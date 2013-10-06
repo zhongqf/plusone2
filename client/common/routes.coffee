@@ -58,8 +58,9 @@ Meteor.pages
   '/login':
     to:  'login', before: alreadyLoginForward, layout: "layout_none"
   '/tasks':
-    to: 'tasks', before: [requireLogin, setDefaultProject]
-
+    to: 'tasks', nav: "projects", before: [requireLogin, setDefaultProject]
+  '/me':
+    to: 'tasks', nav: "user", before: [requireLogin, setDefaultProject]
 
 
 

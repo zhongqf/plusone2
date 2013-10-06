@@ -1,0 +1,85 @@
+<template name="nav_sub_projects">
+  <section class="vbox">
+    <section class="scrollable">
+      <div class="wrapper">
+        {{#with currentProject }}
+        <header>
+          <a href="#" class="h4 m-t-xs m-b-xs" data-toggle="dropdown">
+            <i class="icon-suitcase"></i>
+              <b>{{name}}</b>
+            <i class="icon-angle-down"></i>
+          </a>
+          {{#if public}}
+            <p>public</p>
+          {{/if}}
+          <ul class="dropdown-menu m-t-sm pojs-project-changer">
+            {{#each projects}}
+              <li>
+                <a href="#" data-po-key="{{_id}}" data-po-type="Project" data-po-property="name">{{name}}</a>
+              </li>
+            {{/each}}
+            <li class="divider"></li>
+            <li>
+              <a href="#">All Projects...</a>
+            </li>
+          </ul>
+        </header>
+
+        <div>
+          <p>{{description}}</p>
+
+          <ul>
+            {{#each members }}
+              <li>
+                {{userDisplayName userId}}
+              </li>
+            {{/each}}
+          </ul>
+          <a class="btn btn-white btn-sm">
+            <i class="icon-cog"></i>
+            Project Settings
+          </a>
+          <div class="line"></div>
+        </div>
+
+        {{/with}}
+
+        <ul class="nav nav-pills nav-stacked no-radius">
+          <li>
+            <a href="#">
+              <span class="badge pull-right">15</span>
+              <i class="icon-inbox"></i>
+              Discussions
+            </a>
+          </li>
+          <li class="active">
+            <a href="#">
+              <i class="icon-envelope-alt"></i>
+              Tasks
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="badge badge-hollow pull-right">4</span>
+              <i class="icon-bookmark-empty"></i>
+              Files
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <i class="icon-pencil"></i>
+              Events
+            </a>
+          </li>
+          <li>
+            <a href="#">
+              <span class="badge badge-hollow pull-right">3</span>
+              <i class="icon-star-empty"></i>
+              Activities
+            </a>
+          </li>
+        </ul>
+      </div>
+    </section>
+  </section>
+</template>
