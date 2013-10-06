@@ -1,4 +1,11 @@
-Template.tasklists_header.events 
+Template.tasklists_header.tasklistTitle = ->
+  project = Projects.findOne Session.get("currentProjectId")
+  if project && project.name
+    return "Tasks in " + project.name
+  else
+    return "Tasks"
+
+Template.tasklists_header.events
   'click #new_tasklist': (event, templ)->
     tl = Tasklists.insert
       name: ""
