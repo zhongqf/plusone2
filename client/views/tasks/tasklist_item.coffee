@@ -1,14 +1,14 @@
 #Task item
-Template.task_item.taskIsActive = ->
+Template.tasklist_item.taskIsActive = ->
   return Session.get("currentTaskId") == this._id
 
-Template.task_item.editingText = ->
+Template.tasklist_item.editingText = ->
   if Session.get("currentTaskId") == this._id
     return Session.get("editing_text") or this.text
   else
     return this.text
 
-Template.task_item.events
+Template.tasklist_item.events
   'focus input[type=text]': (event, templ)->
     Session.set("editing_text", event.currentTarget.value);
     Session.set("currentTaskId", this._id);
@@ -37,3 +37,4 @@ Template.task_item.events
   'change input[type=checkbox]':  (event, templ)->
     Meteor.call "updateTask", this._id,
       done: not this.done
+

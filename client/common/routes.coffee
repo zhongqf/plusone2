@@ -37,8 +37,10 @@
 requireLogin = ->
   if Meteor.loggingIn()
     this.template("loading")
+    this.stop()
   else unless Meteor.user()
-    this.template("login")
+    this.redirect("/login")
+    this.stop()
 
 alreadyLoginForward = ->
   if Meteor.user()
@@ -52,13 +54,11 @@ setDefaultProject = ->
 
 Meteor.pages
   '/':
-    to: '/', before: [requireLogin, alreadyLoginForward]
+    to: 'tasks', before: [requireLogin, alreadyLoginForward]
   '/login':
-    to:  'login', before: alreadyLoginForward
+    to:  'login', before: alreadyLoginForward, layout: "layout_none"
   '/tasks':
     to: 'tasks', before: [requireLogin, setDefaultProject]
-  '/tasks/design':
-    to: 'task_design'
 
 
 

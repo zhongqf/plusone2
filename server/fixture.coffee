@@ -66,6 +66,7 @@ if Projects.find().count() == 0
         name: words()
         creatorId: random_user_id()
         timestamp: faketime()
+        description: Fake.paragraph()
 
       random_times 5,10, ->
         task = Tasks.insert

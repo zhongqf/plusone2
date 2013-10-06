@@ -1,4 +1,4 @@
-<template name="tasklists">
+<template name="old_tasklists">
   <aside class="bg-light lter">
     <section class="vbox">
 
@@ -43,4 +43,22 @@
     </section>
   </aside>
   
+</template>
+
+
+<template name="tasklists">
+  <section class="vbox">
+
+    {{> tasklists_header }}
+
+    <section class="scrollable">
+      <div class="wrapper">
+        {{#each tasklists }}
+          {{> tasklist }}
+        {{/each }}
+      </div>
+    </section>
+
+ </section>
+
 </template>

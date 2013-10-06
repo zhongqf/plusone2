@@ -1,0 +1,15 @@
+
+
+<template name="tasklist">
+  <section class="panel">
+    <header class="panel-heading">
+      <input type="text" data-po-key="{{_id}}" data-po-property="name" data-po-type="Tasklist" class="form-control text-xl" value="{{name}}">
+      <input type="text" data-po-key="{{_id}}" data-po-property="description" data-po-type="Tasklist" class="form-control text-sm" value="{{description}}">
+    </header>
+    <ul class="list-group">
+      {{#each tasks }}
+        {{> tasklist_item }}
+      {{/each }}
+    </ul>
+  </section>
+</template>
