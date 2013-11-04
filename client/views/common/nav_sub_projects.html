@@ -3,11 +3,13 @@
     <section class="scrollable">
       <div class="wrapper">
         {{#with currentProject }}
-        <header>
-          <a href="#" class="h4 m-t-xs m-b-xs" data-toggle="dropdown">
-            <i class="icon-suitcase"></i>
-              <b>{{name}}</b>
-            <i class="icon-angle-down"></i>
+        <header class="m-b">
+          <a href="#" class="h3 m-t-xs m-b-xs m-l-n-xs" data-toggle="dropdown">
+            <span class="text-thick">
+              <i class="icon-suitcase text-light"></i>
+                {{name}}
+            </span>
+              <i class="icon-angle-down text-light pull-right"></i>
           </a>
           {{#if public}}
             <p>public</p>
@@ -25,56 +27,58 @@
           </ul>
         </header>
 
-        <div>
+        <div class="text-multiline-ellipsis m-b-lg" style="max-height: 150px;">
           <p>{{description}}</p>
+        </div>
 
-          <ul>
-            {{#each members }}
-              <li>
-                {{userDisplayName userId}}
-              </li>
-            {{/each}}
-          </ul>
-          <a class="btn btn-white btn-sm">
+        <div class="clearfix m-b-lg">
+          {{#each members }}
+            <a href="#" data-toggle="tooltip" title="{{userDisplayName userId}}" class="pull-left thumb-lsm m-r-1px">
+              <img src="images/avatar.jpg" class="img-circle opacity-dp hover-full-opacity">
+            </a>
+          {{/each}}
+        </div>
+        <div class="clearfix">
+          <a class="btn btn-default btn-sm pull-right">
             <i class="icon-cog"></i>
             Project Settings
           </a>
-          <div class="line"></div>
         </div>
+        <div class="line"></div>
 
         {{/with}}
 
-        <ul class="nav nav-pills nav-stacked no-radius">
+        <ul class="nav nav-bigtext nav-stacked no-radius">
           <li>
-            <a href="#">
+            <a href="/discussions">
               <span class="badge pull-right">15</span>
-              <i class="icon-inbox"></i>
+              <i class="icon-comments-alt"></i>
               Discussions
             </a>
           </li>
           <li class="active">
-            <a href="#">
-              <i class="icon-envelope-alt"></i>
+            <a href="/tasks">
+              <i class="icon-tasks"></i>
               Tasks
             </a>
           </li>
           <li>
             <a href="#">
               <span class="badge badge-hollow pull-right">4</span>
-              <i class="icon-bookmark-empty"></i>
+              <i class="icon-file-text-alt"></i>
               Files
             </a>
           </li>
           <li>
             <a href="#">
-              <i class="icon-pencil"></i>
+              <i class="icon-bell"></i>
               Events
             </a>
           </li>
           <li>
             <a href="#">
               <span class="badge badge-hollow pull-right">3</span>
-              <i class="icon-star-empty"></i>
+              <i class="icon-time"></i>
               Activities
             </a>
           </li>

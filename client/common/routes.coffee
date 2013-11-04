@@ -61,6 +61,10 @@ Meteor.pages
     to: 'tasks', nav: "projects", before: [requireLogin, setDefaultProject]
   '/me':
     to: 'tasks', nav: "user", before: [requireLogin, setDefaultProject]
+  '/discussions':
+    to: 'discussions', nav: "projects", before: [requireLogin, setDefaultProject]
+  ,
+    autoRender: false
 
 
 

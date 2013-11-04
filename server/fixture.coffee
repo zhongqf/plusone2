@@ -61,6 +61,33 @@ if Projects.find().count() == 0
         projectId: project
         userId: m
 
+    random_times 10,20, ->
+      discussion = Discussions.insert
+        projectId: project
+        name: words()
+        text: Fake.paragraph()
+        creatorId: random_user_id()
+        timestamp: faketime()
+        lastCommentIds: []
+
+      commentIndex = 1
+      random_times 5, 10, ->
+        comment = Comments.insert
+          projectId: project
+          objectId: discussion
+          userId: random_user_id()
+          text: Fake.sentence()
+          timestamp: faketime()
+
+        if commentIndex <= 3
+          Discussions.update({_id: discussion},
+            $push:
+              lastCommentIds: comment
+          )
+
+        commentIndex = commentIndex + 1
+
+
     random_times 3,6, ->
       list = Tasklists.insert
         projectId: project
@@ -85,6 +112,7 @@ if Projects.find().count() == 0
 
         random_times 0,3, ->
           Comments.insert
+            projectId: project
             objectId: task
             userId: random_user_id()
             text: Fake.sentence()

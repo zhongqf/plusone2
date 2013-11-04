@@ -7,7 +7,7 @@ Template.tasklists.orphanTasks = ->
   return Tasks.find({tasklistId: null}, {sort: {timestamp: -1}})
 
 Template.tasklists.tasklists =  ->
-  return Tasklists.find({},{sort: {timestamp: -1}})
+  return Tasklists.find({projectId: Session.get('currentProjectId')},{sort: {timestamp: -1}})
 
 Template.tasklists.tasksOf = (list)->
   return Tasks.find({tasklistId: list._id}, {sort: {timestamp: -1}})

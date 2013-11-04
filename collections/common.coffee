@@ -1,11 +1,14 @@
-authenticatedUser = ->
+global = exports ? this
+
+
+global.authenticatedUser = ->
   user = Meteor.user()
   if (!user)
     throw new Meteor.Error(401, "You need to login.")
   return user
 
 
-buildChangeObject = (oldObj, newObj)->
+global.buildChangeObject = (oldObj, newObj)->
 
   oldKeys = _.keys(oldObj)
 

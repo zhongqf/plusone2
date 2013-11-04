@@ -1,13 +1,19 @@
 <template name="tasklist_item">
-  <li class="list-group-item {{#if taskIsActive}}active{{/if}}">
-    <div class="checkbox">
-      <label class="checkbox-custom">
+  <li class="list-group-item po-tasklist-item no-border {{#if taskIsActive}}active{{/if}}">
+    <!--<a href="#" data-toggle="tooltip" title="{{userDisplayName userId}}" class="pull-left thumb-lsm m-r-1px">
+      <img src="images/avatar.jpg" class="img-circle opacity-dp hover-full-opacity">
+    </a>-->
+    <div class="checkbox m-t-xxs m-b-xxs">
+      <label class="checkbox-custom ">
         <input type="checkbox" name="checkboxA" date-po-type="Task" data-po-key="{{_id}}" data-po-property="done" {{#if done}} checked="checked" {{/if}} >
         <i class="icon-unchecked {{#if done}}checked{{/if}}"></i>
       </label>
+      <div class="text-ellipsis" style="min-height: 1.5em">{{editingTaskText}}</div>
     </div>
 
-    <input type="text" data-po-key="{{_id}}" data-po-property="text" data-po-type="Task" class="no-border form-control" value="{{text}}">
+    <!--
+      <input type="text" data-po-key="{{_id}}" data-po-property="text" data-po-type="Task" class="no-border form-control" value="{{text}}">
+    -->
     <!--<small class="block text-muted"><i class="icon-time"></i>2 minuts ago</small>-->
 
   </li>

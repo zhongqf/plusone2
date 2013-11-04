@@ -1,9 +1,26 @@
+global = exports ? this
+
 @Tasks = new Meteor.Collection("tasks")
 
 Meteor.methods
+
+  newTask: (tasklistId)->
+    user = global.authenticatedUser()
+    tasklist = Tasklists.findOne(tasklistId)
+
+    if user && tasklist
+      taskId = Tasks.insert
+        projectId: tasklist.projectId
+        tasklistId: tasklistId
+        timestamp: new Date().getTime()
+        creatorId: user._id
+
+      global.logTaskActivity('newTask', taskId)
+      return taskId
+
   createTask: (taskAttrs)->
 
-    user = authenticatedUser()
+    user = global.authenticatedUser()
 
     task = _.extend(_.pick(taskAttrs, 'projectId', 'tasklistId', 'text'), {
       creatorId: user._id,
@@ -12,13 +29,13 @@ Meteor.methods
 
     taskId = Tasks.insert(task)
 
-    logTaskActivity('createTask', taskId)
+    global.logTaskActivity('createTask', taskId)
     return taskId
 
   updateTask: (taskId, taskAttrs)->
-    user = authenticatedUser()
+    user = global.authenticatedUser()
 
-    whitelist = ['tasklistId','done','text','dueAt','assigneeId','tags','description']
+    whitelist = ['tasklistId','done','text','dueAt','assigneeId','description']
     searchCondition = _.chain(whitelist).map(
       (o)-> return [o,1]
     ).object().value()
@@ -26,19 +43,34 @@ Meteor.methods
     oldValue = Tasks.findOne(taskId, searchCondition)
     newValue = _.pick(taskAttrs, whitelist)
 
-    actionObject = buildChangeObject(oldValue, newValue)
+    actionObject = global.buildChangeObject(oldValue, newValue)
 
     if(actionObject.before != actionObject.after)
       Tasks.update({_id: taskId}, {$set: newValue})
-      logTaskActivity('changeTask', taskId, user, actionObject)
+      global.logTaskActivity('changeTask', taskId, user, actionObject)
+
+
+  addTaskTag: (taskId, tag) ->
+    user = global.authenticatedUser()
+
+    if tag
+      Tasks.update({_id: taskId}, {$push: {tags: tag}})
+      global.logTaskActivity('addTaskTag', taskId, user, tag)
+
+  removeTaskTag: (taskId, tag) ->
+    user = global.authenticatedUser()
+
+    if tag
+      Tasks.update({_id: taskId}, {$pull: {tags: tag}})
+      global.logTaskActivity('removeTaskTag', taskId, user, tag)
 
 
   commentTask: (taskId, commentBody) ->
-    user = authenticatedUser()
+    user = global.authenticatedUser()
+    task = Tasks.findOne taskId
 
-    commentId = commentIt(taskId, commentBody)
+    commentId = global.commentIt(task.projectId, taskId, commentBody)
     commentObject = _.clone(Comments.findOne(commentId))
 
-    logTaskActivity("commentTask", taskId, user,commentObject)
-
+    global.logTaskActivity("commentTask", taskId, user,commentObject)
 #Uploads = new CollectionFS("uploads")

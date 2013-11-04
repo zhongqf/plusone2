@@ -1,0 +1,31 @@
+<template name="discussion_item">
+  <section id="{{_id}}" class="panel" {{#if isActive}}style="border-color:skyblue; box-shadow: 0 0 4px skyblue;"{{/if}}>
+    <header class="panel-heading">
+      <div class="h4">{{name}}</div>
+      <p>
+        <strong>{{userDisplayName creatorId}}</strong>
+        <span>{{text}}</span>
+        <small class="text-muted">{{shortDateOfTimestamp timestamp}}</small>
+      </p>
+    </header>
+    {{#if hasComments }}
+      <ul class="list-group">
+        {{#each lastComments }}
+          {{> comment }}
+        {{/each }}
+      </ul>
+      {{#if displayAllCommentsLink}}
+        <a href="#">View all {{allCommentsCount}} comments</>
+        <br>
+      {{/if}}
+    {{/if}}
+  </section>
+</template>
+
+<template name="comment">
+  <p>
+    <strong>{{userDisplayName userId}}</strong>
+    <span>{{text}}</span>
+    <small class="text-muted">{{shortDateOfTimestamp timestamp}}</small>
+  </p>
+</template>

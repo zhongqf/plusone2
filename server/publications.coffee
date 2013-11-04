@@ -22,8 +22,11 @@ Meteor.publish "members", (projectId)->
   return Members.find({projectId: projectId})
 
 
-Meteor.publish "comments", (objectId)->
-  return Comments.find({objectId: objectId})
+Meteor.publish "comments", (projectId)->
+  return Comments.find({projectId: projectId})
+
+Meteor.publish "discussions", (projectId)->
+  return Discussions.find({projectId: projectId})
 
 Meteor.publish "allUsers", ->
   return Meteor.users.find {},
