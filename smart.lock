@@ -8,13 +8,14 @@
       "momentjs": {},
       "select2": {},
       "fake": {},
-      "mini-pages": {}
+      "mini-pages": {},
+      "iron-router": {}
     },
     "packages": {
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.1",
-        "commit": "82d3e32b6a44bad7bd439b9e02ce33161e58996d"
+        "tag": "v0.1.4",
+        "commit": "23ec918f8377b15b22cba33e13b717214235c88a"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
@@ -38,13 +39,18 @@
       },
       "fake": {
         "git": "https://github.com/subhog/meteor-fake.git",
-        "tag": "v0.2.1",
-        "commit": "c911ce5b6c11ce6222efdd83eda824201d2eb7df"
+        "tag": "v0.3.4",
+        "commit": "e5393ddad6fbee5638e5c430666693828b403abc"
       },
       "mini-pages": {
         "git": "https://github.com/cmather/meteor-mini-pages.git",
         "tag": "v0.3.2",
         "commit": "4d885ffb6d0108ee2e47a13a6296c98a2f7b5059"
+      },
+      "iron-router": {
+        "git": "https://github.com/EventedMind/iron-router.git",
+        "tag": "v0.6.1",
+        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

@@ -1,70 +1,57 @@
-#tasks = (id)->
-#  avaiable_projects = Projects.find().fetch()
-#
-#  if avaiable_projects.length > 0
-#    Session.set('currentProjectId', avaiable_projects[0]._id )
-#
-#  return 'tasks'
-#
-#Meteor.Router.add
-#  '/': tasks
-#  '/login': 'login'
-#  '/tasks': tasks
-#  '/tasks/design': 'tasks_design'
-#
-#
-#Meteor.Router.filters
-#  requireLogin: (page)->
-#    if Meteor.loggingIn()
-#      return 'loading'
-#    else if Meteor.user()
-#      return page
-#    else
-#      return 'login'
-#
-#  alreadyLoginForward: (page)->
-#    if Meteor.user() and page == 'login'
-#      Meteor.Router.to("/tasks")
-#      return "tasks"
-#    else
-#      return page
-#
-#
-#
-#Meteor.Router.filter 'requireLogin'
-#Meteor.Router.filter 'alreadyLoginForward'
-
 requireLogin = ->
   if Meteor.loggingIn()
-    this.template("loading")
-    this.stop()
+    @render("loading")
+    @stop()
   else unless Meteor.user()
-    this.redirect("/login")
-    this.stop()
+    @redirect("/login")
 
 alreadyLoginForward = ->
   if Meteor.user()
     setDefaultProject()
-    this.redirect("/tasks")
+    @redirect("/tasks")
 
 setDefaultProject = ->
   avaiable_projects = Projects.find().fetch()
   if avaiable_projects.length > 0
     Session.set('currentProjectId', avaiable_projects[0]._id )
 
-Meteor.pages
-  '/':
-    to: 'tasks', before: [requireLogin, alreadyLoginForward]
-  '/login':
-    to:  'login', before: alreadyLoginForward, layout: "layout_none"
-  '/tasks':
-    to: 'tasks', nav: "projects", before: [requireLogin, setDefaultProject]
-  '/me':
-    to: 'tasks', nav: "user", before: [requireLogin, setDefaultProject]
-  '/discussions':
-    to: 'discussions', nav: "projects", before: [requireLogin, setDefaultProject]
-  ,
-    autoRender: false
+Router.configure
+  layoutTemplate: 'layout',
+  autoRender: false
 
+Router.before requireLogin,
+  except: ['login']
 
+Router.before setDefaultProject,
+  except: ['login']
+
+Router.map ->
+  @route 'root',
+    path: '/'
+    before: ->
+      @redirect('/tasks')
+
+  @route 'login',
+    path: '/login'
+    template: 'login'
+    layoutTemplate: 'layout_none'
+    after: alreadyLoginForward
+
+  @route 'tasks',
+    path: '/tasks'
+    template: 'tasks'
+    yieldTemplates:
+      'nav_sub_projects': {to: 'nav'}
+
+  @route 'me',
+    path: '/me'
+    template: 'tasks'
+    yieldTemplates:
+      'nav_sub_user': {to: 'nav'}
+
+  @route 'discussion',
+    path: '/discussion'
+    template: 'discussions'
+    yieldTemplates:
+      'nav_sub_projects': {to: 'nav'}
 

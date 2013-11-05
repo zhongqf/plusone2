@@ -8,10 +8,9 @@ preserve-inputs
 coffeescript
 bootstrap3-less
 underscore
-router
 less
 momentjs
 accounts-password
 accounts-ui
 fake
-mini-pages
+iron-router

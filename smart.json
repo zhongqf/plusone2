@@ -6,6 +6,7 @@
     "momentjs": {},
     "select2": {},
     "fake": {},
-    "mini-pages": {}
+    "mini-pages": {},
+    "iron-router": {}
   }
 }
