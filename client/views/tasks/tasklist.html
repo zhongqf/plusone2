@@ -3,11 +3,7 @@
 <template name="tasklist">
   <section class="panel">
     <header class="panel-heading">
-      <!--
-        <input type="text" data-po-key="{{_id}}" data-po-property="name" data-po-type="Tasklist" class="form-control text-xl" value="{{name}}">
-        <input type="text" data-po-key="{{_id}}" data-po-property="description" data-po-type="Tasklist" class="form-control text-sm" value="{{description}}">
-       -->
-      <div class="h4 m-b-xs">
+     <div class="h4 m-b-xs">
         <span>{{name}}</span>
       </div>
       <div class="text-light text-ellipsis">
@@ -19,9 +15,21 @@
       {{#each tasks }}
         {{> tasklist_item }}
       {{/each }}
-      <div>
-        <a href="#" class="pojs-add-task text-light" data-po-key="{{_id}}">+ Add task</a>
-      </div>
     </ul>
+    {{> new_task}}
   </section>
+  </template>
+
+<template name="new_task">
+  {{#isolate}}
+    <div class="po-add-task-box">
+
+      {{#if showAddTaskBox}}
+        <input type="text" class="po-new-task form-control" data-po-key="{{_id}}" placeholder="Press ENTER to add task, press ESC to cancel">
+      {{else}}
+      <a href="#" class="pojs-show-add-task-box text-light" data-po-key="{{_id}}"><i class="icon-plus"></i> Add task</a>
+      {{/if}}
+
+    </div>
+  {{/isolate}}
 </template>

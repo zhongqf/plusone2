@@ -22,7 +22,7 @@ Template.task_detail.taskTags = ->
   if task.tags
     return task.tags.join(',')
   else
-    return [] 
+    return []
 
 Template.task_detail.taskActivities = ->
   comments = Comments.find({objectId: Session.get('currentTaskId')}).fetch()
@@ -43,7 +43,10 @@ Template.task_detail.hasFiles = ->
   #Uploads.find({metadata: {task_id: Session.get("currentTaskId")}}).count() > 0
 
 Template.task_detail.hasActivities = ->
-  return Comments.find({objectId: Session.get('currentTaskId')}).count() > 0
+  objectId = Session.get('currentTaskId')
+  commentCount = Comments.find({objectId: objectId}).count()
+  activityCount = Activities.find({objectId: objectId, action: {$nin: ['commentTask']}}).count()
+  return ( commentCount > 0 or activityCount > 0)
 
 Template.task_detail.taskActivityText = (activity)->
   switch activity.action
@@ -69,6 +72,8 @@ Template.task_detail.taskActivityText = (activity)->
       return "added tag \"#{activity.actionObject}\""
     when "removeTaskTag"
       return "removed tag \"#{activity.actionObject}\""
+    when "createTask"
+      return "created this task"
     else return activity.action
 
 
@@ -135,7 +140,7 @@ Template.task_detail.events
 
   #'click button.delete_task': (event, templ)->
   #  Tasks.remove({_id: Session.get("currentTaskId")})
-  
+
   'submit .pojs-new-comment-form' : (event, templ)->
     event.preventDefault()
     obj = templ.find(".pojs-new-comment-content")
@@ -145,7 +150,7 @@ Template.task_detail.events
   'focus .pojs-new-comment-content': (event, templ)->
     event.preventDefault()
     Session.set("focused_on_new_comment", true)
-  
+
   'blur .pojs-new-comment-content': (event, templ)->
     event.preventDefault()
     if event.currentTarget.value.length <= 0
@@ -213,4 +218,4 @@ Template.task_detail.rendered = ->
 
       $('.pojs-select-due').datepicker('hide');
 
- 
+

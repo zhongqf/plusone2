@@ -1,16 +1,7 @@
 
 #Task list
-Template.tasklists.hasOrphanTasks = ->
-  return Tasks.find({tasklistId: null}).count() > 0
-
-Template.tasklists.orphanTasks = ->
-  return Tasks.find({tasklistId: null}, {sort: {timestamp: -1}})
-
 Template.tasklists.tasklists =  ->
   return Tasklists.find({projectId: Session.get('currentProjectId')},{sort: {timestamp: -1}})
-
-Template.tasklists.tasksOf = (list)->
-  return Tasks.find({tasklistId: list._id}, {sort: {timestamp: -1}})
 
 Template.tasklists.events
   'blur .po_tasklist_name':  (event, templ)->
@@ -18,4 +9,10 @@ Template.tasklists.events
       _id: this._id,
         $set:
           name: event.currentTarget.value
+
+Template.tasklists.created = ->
+  Session.set("addingTasklist", null)
+
+Template.tasklists.rendered = ->
+  $(".po-new-task").focus()
 

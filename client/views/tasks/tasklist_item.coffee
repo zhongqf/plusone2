@@ -14,7 +14,6 @@ Template.tasklist_item.events
       done: not this.done
 
   'click .po-tasklist-item .checkbox div': (event, templ)->
-    event.preventDefault();
     Session.set("currentTaskId", this._id);
 
   #'focus input[type=text]': (event, templ)->
