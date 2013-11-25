@@ -6,7 +6,6 @@
 standard-app-packages
 preserve-inputs
 coffeescript
-bootstrap3-less
 underscore
 less
 momentjs
