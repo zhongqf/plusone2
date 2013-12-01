@@ -93,8 +93,14 @@ Router.map ->
     before: ->
       @redirect('/explorer/teams')
 
-  @route 'explorer_all_team',
+  @route 'explorer_all_teams',
     path: '/explorer/teams'
     template: 'explorerTeams'
     yieldTemplates:
       'sidebarExplorer':  { to: 'sidebar' }
+
+  @route 'explorer_employees',
+    path: '/explorer/employees'
+    template: 'explorerEmployees'
+    yieldTemplates:
+      'sidebarExplorer': { to: 'sidebar' }

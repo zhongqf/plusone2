@@ -1,3 +1,29 @@
 <template name="explorerTeams">
-  Explorer Teams
+  <header>
+    <div class="bd-b bg-white pd-xl">
+      <h3>
+        All Public Teams
+        <div class="pull-right">
+          <button class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+            New Team
+          </button>
+          <button class="btn">
+            <span class="glyphicon glyphicon-list"></span>
+          </button>
+        </div>
+      </h3>
+    </div>
+  </header>
+
+  <section class="bg-white pd-xl">
+    {{#each publicTeams}}
+    <div class="bd-b bd-light pd-t-sm pd-b-sm">
+      <h4>
+        {{name}}
+      </h4>
+      <p class="text-muted">{{description}}</p>
+    </div>
+    {{/each}}
+  </section>
 </template>

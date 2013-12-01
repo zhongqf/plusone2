@@ -5,6 +5,11 @@ global.userDisplayName = (userId, defaultName = "Unknown User")->
   user = Meteor.users.findOne({_id: userId})
   return user?.profile?.name ? user?.username ? user?.emails?[0]?.address ? defaultName
 
+global.userEmail = (userId) ->
+  userId = userId._id if userId._id?
+  user = Meteor.users.findOne({_id: userId})
+  return user?.emails?[0]?.address
+
 global.shortDateofTimestamp = (timestamp)->
   return moment.unix(timestamp/1000).calendar()
 
@@ -16,6 +21,8 @@ global.currentTeam = ->
 
 
 
+Handlebars.registerHelper "userEmail", (user)->
+  return global.userEmail(user)
 
 Handlebars.registerHelper "currentTeam", ->
   return global.currentTeam()
