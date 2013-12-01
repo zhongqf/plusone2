@@ -1,0 +1,19 @@
+<template name="sidebarUser">
+
+  <div class="pd bd-b bd-light">
+    <div class="text-center">
+      <img src="/images/avatar.jpg" alt="Eric Zhong" />
+      <h3>{{currentUserDisplayName}}</h3>
+    </div>
+  </div>
+
+  <div class="pd">
+    <ul class="nav nav-pills nav-stacked">
+      {{#each navLinks }}
+        <li>
+          <a href="{{url}}">{{text}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

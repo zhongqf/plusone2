@@ -1,3 +1,8 @@
-Template.layout.dynamicNavSub = (navKey)->
-  key = "nav_sub_" + navKey;
-  return Template[key]()
+Template.layoutBasicTopbar.activeTeams = ->
+  return [] unless Meteor.user()
+  return Teams.find({memberIds: Meteor.userId()}, {limit: 5})
+
+Template.layoutBasicTopbar.events
+  'click .pjs-logout': (event)->
+    event.preventDefault()
+    Meteor.logout()

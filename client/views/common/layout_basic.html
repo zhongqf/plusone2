@@ -1,219 +1,74 @@
-<template name="layout">
-  <section class="hbox stretch">
+<template name="layoutBasic">
+  {{> layoutBasicTopbar }}
 
-    <aside class="bg-black aside-sm nav-vertical no-borders" id="nav" style="width: 75px;">
-      {{> nav_main }}
+  <section id="page" role="page">
+
+    <aside id="side" class="bg-silver bd-r bd-dark">
+      {{{ yield 'sidebar' }}}
     </aside>
 
-    <aside class="aside-lg bg-white b-r" id="nav-sub">
-      {{{yield 'nav'}}}
-    </aside>
-
-    <aside class="bg-light lter" id="content">
-      {{{yield}}}
-    </aside>
+    <section id="main" class="bg-silver bg-dark" role="main">
+      {{{ yield }}}
+    </section>
 
   </section>
+</template>
 
-  <!--
-  <section class="hbox stretch">
-  <aside class="bg-black aside-sm nav-vertical no-borders" id="nav" style="width: 75px;">
-    <section class="vbox scrollable">
-      <header class="bg-danger nav-bar">
-        <a class="btn btn-link visible-xs" data-toggle="class:nav-off-screen" data-target="#nav">
-          <i class="icon-reorder"></i>
-        </a>
-        <a href="#" class="nav-brand" data-toggle="fullscreen">+one</a>
-        <a class="btn btn-link visible-xs" data-toggle="class:show" data-target=".nav-user">
-          <i class="icon-comment-alt"></i>
-        </a>
-      </header>
-      <section class="w-f">
-        <div class="bg-dark lter nav-user hidden-xs pos-rlt">
-          <div class="nav-avatar pos-rlt">
-            <a href="#" class="thumb-sm avatar">
-              <img src="images/avatar.jpg" alt="" class="">
-              <span class="caret caret-white"></span>
+<template name="layoutBasicTopbar">
+  <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Plusone</a>
+    </div>
+
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li class="divider"></li>
+        <li>
+          <div class="btn-group navbar-form">
+            {{#with currentTeam}}
+              <a class="btn btn-primary" href="/team/{{slug}}">{{name}}</a>
+            {{/with}}
+            <a class="btn btn-primary dropdown-toggle" data-toggle="dropdown" href="#">
+              <b class="caret"></b>
             </a>
-            <div class="visible-xs m-t m-b">
-              <a href="#" class="h3">John.Smith</a>
-              <p><i class="icon-map-marker"></i> London, UK</p>
-            </div>
+            <ul class="dropdown-menu" role="menu">
+              {{#each activeTeams}}
+                <li>
+                  <a href="/team/{{slug}}">{{name}}</a>
+                </li>
+              {{/each}}
+              <li class="divider"></li>
+              <li><a href="/me/teams">All Teams</a></li>
+            </ul>
           </div>
-          <div class="nav-msg">
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-              <b class="badge badge-white count-n">2</b>
-            </a>
-            <section class="dropdown-menu m-l-sm pull-left animated fadeInRight">
-              <div class="arrow left"></div>
-              <section class="panel bg-white">
-                <header class="panel-heading">
-                  <strong>You have <span class="count-n">2</span> notifications</strong>
-                </header>
-                <div class="list-group">
-                  <a href="#" class="media list-group-item">
-                      <span class="pull-left thumb-sm">
-                        <img src="images/avatar.jpg" alt="John said" class="img-circle">
-                      </span>
-                      <span class="media-body block m-b-none">
-                        Use awesome animate.css<br>
-                        <small class="text-muted">28 Aug 13</small>
-                      </span>
-                  </a>
-                  <a href="#" class="media list-group-item">
-                      <span class="media-body block m-b-none">
-                        1.0 initial released<br>
-                        <small class="text-muted">27 Aug 13</small>
-                      </span>
-                  </a>
-                </div>
-                <footer class="panel-footer text-sm">
-                  <a href="#" class="pull-right"><i class="icon-cog"></i></a>
-                  <a href="#">See all the notifications</a>
-                </footer>
-              </section>
-            </section>
-          </div>
-        </div>
-        <nav class="nav-primary hidden-xs">
-          <ul class="nav">
-            <li>
-              <a href="#">
-                <i class="icon-search"></i>
-                <span>Search</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-suitcase"></i>
-                <span>Projects</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-time"></i>
-                <span>Timeline</span>
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-calendar"></i>
-                <span>Calendar</span>
-              </a>
+        </li>
+        <li class="divider"></li>
+        <li><a href="#">Calendar</a></li>
+        <li><a href="#">Timeline</a></li>
+        <li><a href="/explorer">Explorer</a></li>
+      </ul>
 
-            </li>
-            <li>
-              <a href="#">
-                <b class="badge bg-primary pull-right">3</b>
-                <i class="icon-reorder"></i>
-                <span>Everything</span>
-              </a>
-            </li>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <form class="navbar-form" role="search">
+            <input type="text" class="form-control" placeholder="Type to search...">
+          </form>
+        </li>
+        <li class="divider"></li>
+        <li>
+          <a href="/me" style="background: url(/images/small_avatar.jpg) no-repeat left center; margin-left: 8px; padding-left: 45px">
+            <span>{{currentUserDisplayName}}</span>
+          </a>
+        </li>
 
-            <li>
-              <a href="#">
-                <i class="icon-group"></i>
-                <span>People</span>
-              </a>
-            </li>
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#"><b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a href="#" class="pjs-logout">Logout</a></li>
           </ul>
-        </nav>
-      </section>
+        </li>
+      </ul>
+    </div>
+  </nav>
 
-    </section>
-  </aside>
-  <aside class="aside-lg bg-white b-r">
-    <section class="vbox">
-      <section class="scrollable">
-        <div class="wrapper">
-          <div class="clearfix m-b">
-            <a href="#" class="pull-left thumb m-r">
-              <img src="images/avatar.jpg" class="img-circle">
-            </a>
-            <div class="clear">
-              <div class="h3 m-t-xs m-b-xs">John.Smith</div>
-              <small class="text-muted"><i class="icon-map-marker"></i> London, UK</small>
-            </div>
-          </div>
-          <div>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis ipsum ac feugiat.</p>
-            <div class="line"></div>
-          </div>
-          <ul class="nav nav-pills nav-stacked no-radius">
-            <li>
-              <a href="#">
-                <span class="badge pull-right">15</span>
-                <i class="icon-inbox"></i>
-                Inbox
-              </a>
-            </li>
-            <li class="active">
-              <a href="#">
-                <i class="icon-envelope-alt"></i>
-                Sent mail
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="badge badge-hollow pull-right">4</span>
-                <i class="icon-bookmark-empty"></i>
-                Important
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <i class="icon-pencil"></i>
-                Draft
-              </a>
-            </li>
-            <li>
-              <a href="#">
-                <span class="badge badge-hollow pull-right">3</span>
-                <i class="icon-star-empty"></i>
-                Spam
-              </a>
-            </li>
-          </ul>
-        </div>
-      </section>
-    </section>
-  </aside><aside class="bg-light lter">
-    <section class="hbox stretch"><aside><section class="vbox">
-      <header class="header bg-light lter bg-gradient b-b">
-        <button class="btn btn-success btn-sm pull-right btn-icon" id="new-task"><i class="icon-plus"></i></button>
-        <p class="h4">Tasks</p>
-      </header><section class="scrollable">
-      <div class="wrapper">
-
-        <section class="panel"><header class="panel-heading">
-
-
-
-          <span class="h4">Latest Tweets</span><br><span class="text-muted">Woooo</span></header>
-
-
-          <ul class="list-group">
-            <li class="list-group-item">
-              <p>Wellcome <a href="#" class="text-info">@Drew Wllon</a> and play this web application template, have fun1 </p>
-              <small class="block text-muted"><i class="icon-time"></i>2 minuts ago</small>
-            </li>
-            <li class="list-group-item">
-              <p>Morbi nec <a href="#" class="text-info">@Jonathan George</a> nunc condimentum ipsum dolor sit amet, consectetur</p>
-              <small class="block text-muted"><i class="icon-time"></i>1 hour ago</small>
-            </li>
-            <li class="list-group-item">
-              <p><a href="#" class="text-info">@Josh Long</a> Vestibulum ullamcorper sodales nisi nec adipiscing elit. Morbi id neque quam. Aliquam sollicitudin venenatis</p>
-              <small class="block text-muted"><i class="icon-time"></i>2 hours ago</small>
-            </li>
-          </ul>
-        </section>
-
-      </div>
-    </section>
-    </section></aside><aside class="bg-white b-l" style="
-"></aside></section>
-  </aside>
-
-  </section>
-  -->
 </template>

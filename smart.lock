@@ -9,7 +9,9 @@
       "select2": {},
       "fake": {},
       "mini-pages": {},
-      "iron-router": {}
+      "iron-router": {},
+      "scss": {},
+      "chance": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -51,6 +53,16 @@
         "git": "https://github.com/EventedMind/iron-router.git",
         "tag": "v0.6.1",
         "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+      },
+      "scss": {
+        "git": "https://github.com/fourseven/meteor-scss.git",
+        "tag": "v0.7.0",
+        "commit": "39f60d58c2b890bdd897ef52188644f3093fc2ac"
+      },
+      "chance": {
+        "git": "https://github.com/jvanveen/meteor-chance.git",
+        "tag": "v1.0.2",
+        "commit": "c06db16783744e5c1f4c36668a14240086caa1c7"
       },
       "page-js-ie-support": {
         "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",

@@ -1,0 +1,17 @@
+background-color: @color;
+
+&.bg-dark {
+  background-color: darken(@color, 4%);
+}
+
+&.bg-darker {
+  background-color: darken(@color, 8%);
+}
+
+&.bg-light {
+  background-color: lighten(@color, 4%);
+}
+
+&.bg-lighter {
+  background-color: lighten(@color, 8%);
+}

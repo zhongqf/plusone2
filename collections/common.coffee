@@ -1,6 +1,5 @@
 global = exports ? this
 
-
 global.authenticatedUser = ->
   user = Meteor.user()
   if (!user)

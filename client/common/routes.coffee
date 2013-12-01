@@ -7,51 +7,94 @@ requireLogin = ->
 
 alreadyLoginForward = ->
   if Meteor.user()
-    setDefaultProject()
-    @redirect("/tasks")
+    setDefaultTeam()
+    @redirect("/me")
 
-setDefaultProject = ->
-  avaiable_projects = Projects.find().fetch()
-  if avaiable_projects.length > 0
-    Session.set('currentProjectId', avaiable_projects[0]._id )
+#setDefaultProject = ->
+#  avaiable_projects = Projects.find().fetch()
+#  if avaiable_projects.length > 0
+#    Session.set('currentProjectId', avaiable_projects[0]._id )
+
+setDefaultTeam = ->
+  team = Teams.findOne({memberIds: Meteor.userId()})
+  Session.set("currentTeamId", team._id) if team
 
 Router.configure
-  layoutTemplate: 'layout',
+  layoutTemplate: 'layoutBasic',
   autoRender: false
 
 Router.before requireLogin,
   except: ['login']
 
-Router.before setDefaultProject,
+Router.before setDefaultTeam,
   except: ['login']
 
 Router.map ->
   @route 'root',
     path: '/'
     before: ->
-      @redirect('/tasks')
+      @redirect('/me')
 
   @route 'login',
     path: '/login'
     template: 'login'
-    layoutTemplate: 'layout_none'
+    layoutTemplate: 'layoutNone'
     after: alreadyLoginForward
 
-  @route 'tasks',
-    path: '/tasks'
-    template: 'tasks'
-    yieldTemplates:
-      'nav_sub_projects': {to: 'nav'}
-
-  @route 'me',
+  #User
+  @route '/me',
     path: '/me'
-    template: 'tasks'
+    template: 'userHome'
     yieldTemplates:
-      'nav_sub_user': {to: 'nav'}
+      'sidebarUser': {to: 'sidebar'}
 
-  @route 'discussion',
-    path: '/discussion'
-    template: 'discussions'
+  @route 'user_joined_teams',
+    path: 'me/teams'
+    template: "userJoinedTeams"
     yieldTemplates:
-      'nav_sub_projects': {to: 'nav'}
+      'sidebarUser': {to: 'sidebar'}
 
+
+
+
+  #Teams
+  @route 'team_tasks',
+    path: '/team/:slug/tasks'
+    template: 'teamTasks'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+  @route 'team_files',
+    path: '/team/:slug/files'
+    template: 'teamFiles'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+  @route 'team_home',
+    path: 'team/:slug'
+    template: 'teamHome'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+
+
+  #Explorer
+  @route 'explorer_home',
+    path: '/explorer'
+    before: ->
+      @redirect('/explorer/teams')
+
+  @route 'explorer_all_team',
+    path: '/explorer/teams'
+    template: 'explorerTeams'
+    yieldTemplates:
+      'sidebarExplorer':  { to: 'sidebar' }

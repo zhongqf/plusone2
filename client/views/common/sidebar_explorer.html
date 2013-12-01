@@ -1,0 +1,11 @@
+<template name="sidebarExplorer">
+  <div class="pd">
+    <ul class="nav nav-pills nav-stacked">
+      {{#each navLinks }}
+      <li>
+        <a href="{{url}}">{{text}}</a>
+      </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

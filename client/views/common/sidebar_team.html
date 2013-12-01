@@ -1,0 +1,19 @@
+<template name="sidebarTeam">
+  <div class="pd bd-b bd-light">
+    <div class="text-center">
+      {{#with currentTeam}}
+        <h3>{{name}}</h3>
+      {{/with}}
+    </div>
+  </div>
+
+  <div class="pd">
+    <ul class="nav nav-pills nav-stacked">
+      {{#each navLinks }}
+        <li>
+          <a href="{{url}}">{{text}}</a>
+        </li>
+      {{/each}}
+    </ul>
+  </div>
+</template>

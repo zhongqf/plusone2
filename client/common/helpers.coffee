@@ -1,18 +1,30 @@
 global = exports ? this
 
-global.userDisplayName = (user)->
-  user = if (typeof user is "string") then  Meteor.users.findOne({_id: user}) else user
-
-  if user
-    return (user.profile && user.profile.name) || user.username || (user.emails && user.emails[0] && user.emails[0].address) || "Noname User"
-  return "Invalid User"
+global.userDisplayName = (userId, defaultName = "Unknown User")->
+  userId = userId._id if userId._id?
+  user = Meteor.users.findOne({_id: userId})
+  return user?.profile?.name ? user?.username ? user?.emails?[0]?.address ? defaultName
 
 global.shortDateofTimestamp = (timestamp)->
   return moment.unix(timestamp/1000).calendar()
 
+global.currentTeam = ->
+  teamId = Session.get "currentTeamId"
+  return Teams.findOne({_id: teamId}) if teamId
+
+
+
+
+
+
+Handlebars.registerHelper "currentTeam", ->
+  return global.currentTeam()
 
 Handlebars.registerHelper "userDisplayName", (user)->
   return global.userDisplayName(user)
+
+Handlebars.registerHelper "currentUserDisplayName", ->
+  return global.userDisplayName(Meteor.userId())
 
 Handlebars.registerHelper "shortDateOfTimestamp", (timestamp)->
   return global.shortDateofTimestamp(timestamp)

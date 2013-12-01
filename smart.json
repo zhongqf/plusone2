@@ -7,6 +7,8 @@
     "select2": {},
     "fake": {},
     "mini-pages": {},
-    "iron-router": {}
+    "iron-router": {},
+    "scss": {},
+    "chance": {}
   }
 }

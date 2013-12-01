@@ -1,33 +1,4 @@
-Meteor.publish "tasks", (projectId)->
-  return Tasks.find({projectId: projectId})
-
-
-Meteor.publish "tasklists", (projectId)->
-  return Tasklists.find({projectId: projectId})
-
-
-Meteor.publish "projects", ->
-  conditions = {public: true}
-
-  if this.userId
-    memberships = Members.find({userId: this.userId}).fetch()
-    visible_projects = _.map memberships, (m)->
-      return m.projectId
-    conditions = {$or: [{_id: {$in : visible_projects}}, conditions]}
-
-  return Projects.find(conditions)
-
-
-Meteor.publish "members", (projectId)->
-  return Members.find({projectId: projectId})
-
-
-Meteor.publish "comments", (projectId)->
-  return Comments.find({projectId: projectId})
-
-Meteor.publish "discussions", (projectId)->
-  return Discussions.find({projectId: projectId})
-
+#Users
 Meteor.publish "allUsers", ->
   return Meteor.users.find {},
     fields:
@@ -35,5 +6,28 @@ Meteor.publish "allUsers", ->
       emails: 1
       profile: 1
 
-Meteor.publish "taskActivity", (taskId)->
-  return Activities.find({objectId: taskId});
+#Teams
+Meteor.publish "teams", ->
+  conditions = {public: true}
+  if this.userId
+    conditions = {$or: [{memberIds: this.userId}, conditions]}
+  return Teams.find(conditions)
+
+#Team Objects
+Meteor.publish "teamTasks", (teamId)->
+  return Tasks.find({teamId: teamId})
+
+Meteor.publish "teamTasklists", (teamId)->
+  return Tasklists.find({teamId: teamId})
+
+Meteor.publish "teamDiscussions", (teamId)->
+  return Discussions.find({teamId: teamId})
+
+Meteor.publish "teamComments", (teamId)->
+  return Comments.find({teamId: teamId})
+
+Meteor.publish "teamActivities", (teamId)->
+  return Activities.find({teamId: teamId})
+
+
+#User Objects

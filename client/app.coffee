@@ -11,3 +11,6 @@ Template.body.rendered = ->
 
   setScrollbarStyle()
 
+
+
+Template.body.created =->

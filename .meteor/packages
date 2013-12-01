@@ -11,5 +11,6 @@ less
 momentjs
 accounts-password
 accounts-ui
-fake
 iron-router
+bootstrap3-less
+chance
