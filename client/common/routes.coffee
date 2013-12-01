@@ -54,10 +54,57 @@ Router.map ->
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
 
+  @route 'user_notifications',
+    path: 'me/notifications'
+    template: 'userNotifications'
+    yieldTemplates:
+      'sidebarUser': {to: 'sidebar'}
+
+  @route 'user_items',
+    path: 'me/items'
+    template: 'userItems'
+    yieldTemplates:
+      'sidebarUser': {to: 'sidebar'}
 
 
 
   #Teams
+  @route 'team_home',
+    path: 'team/:slug'
+    template: 'teamHome'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+  @route 'team_discussions',
+    path: '/team/:slug/discussions'
+    template: 'teamDiscussions'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+  @route 'team_documents',
+    path: '/team/:slug/documents'
+    template: 'teamDocuments'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
+  @route 'team_events',
+    path: '/team/:slug/events'
+    template: 'teamEvents'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
   @route 'team_tasks',
     path: '/team/:slug/tasks'
     template: 'teamTasks'
@@ -76,14 +123,6 @@ Router.map ->
       team = Teams.findOne({slug: this.params.slug})
       Session.set("currentTeamId", team._id) if team
 
-  @route 'team_home',
-    path: 'team/:slug'
-    template: 'teamHome'
-    yieldTemplates:
-      'sidebarTeam': {to: 'sidebar'}
-    before: ->
-      team = Teams.findOne({slug: this.params.slug})
-      Session.set("currentTeamId", team._id) if team
 
 
 
