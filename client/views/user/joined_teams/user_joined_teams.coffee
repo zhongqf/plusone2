@@ -1,3 +1,10 @@
 Template.userJoinedTeams.teams = ->
   user = this.user ? Meteor.user()
-  Teams.find({memberIds: user._id})
+  condition = {}
+
+  if isCurrentUser(user)
+    condition = {memberIds: user._id}
+  else
+    condition = {$and: [{memberIds: user._id}, {public: true}]}
+
+  Teams.find(condition)

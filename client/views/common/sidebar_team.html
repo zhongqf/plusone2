@@ -21,7 +21,9 @@
     <ul>
       {{#each members}}
         <li>
-          <span>{{userDisplayName _id }}</span>
+          <a href="/user/{{username}}">
+            <span>{{userDisplayName _id }}</span>
+          </a>
         </li>
       {{/each}}
     </ul>

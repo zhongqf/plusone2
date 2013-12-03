@@ -42,7 +42,7 @@ Router.map ->
     layoutTemplate: 'layoutNone'
     after: alreadyLoginForward
 
-  #User
+  #Me
   @route 'me',
     path: '/me'
     before: ->
@@ -170,11 +170,17 @@ Router.map ->
     yieldTemplates:
       'sidebarExplorer': { to: 'sidebar' }
 
+
+  #User
   @route 'user_home',
     path: '/user/:username'
     before: ->
       user = Meteor.users.findOne({username: this.params.username})
-      @redirect("/user/#{user.username}/activities")
+
+      if isCurrentUser(user)
+        @redirect("/me")
+      else
+        @redirect("/user/#{user.username}/activities")
 
   @route 'user_activities',
     path: '/user/:username/activities'

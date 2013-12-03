@@ -21,6 +21,13 @@
     <div class="bd-b bd-light pd-t-sm pd-b-sm">
       <h4>
         <a href="/team/{{slug}}">{{name}}</a>
+        <small class="text-muted">
+          {{#if public}}
+            <span class="glyphicon glyphicon-eye-open"></span>
+          {{else}}
+            <span class="glyphicon glyphicon-eye-close"></span>
+          {{/if}}
+        </small>
       </h4>
       <p class="text-muted">{{description}}</p>
     </div>
