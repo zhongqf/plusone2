@@ -4,7 +4,7 @@ Template.sidebarTeam.navLinks =->
   return links unless currentTeam
 
   slug = currentTeam().slug
-  links.push text: "Update",        key: "update",        url: "/team/#{slug}"
+  links.push text: "Activities",    key: "activities",    url: "/team/#{slug}/activities"
   links.push text: "Discussions",   key: "discussions",   url: "/team/#{slug}/discussions"
   links.push text: "Tasks",         key: "tasks",         url: "/team/#{slug}/tasks"
   links.push text: "Files",         key: "files",         url: "/team/#{slug}/files"

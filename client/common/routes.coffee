@@ -42,9 +42,14 @@ Router.map ->
     after: alreadyLoginForward
 
   #User
-  @route '/me',
+  @route 'me',
     path: '/me'
-    template: 'userHome'
+    before: ->
+      @redirect('/me/inbox')
+
+  @route 'user_inbox',
+    path: 'me/inbox'
+    template: 'userInbox'
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
 
@@ -66,12 +71,22 @@ Router.map ->
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
 
-
+  @route 'user_activities',
+    path: 'me/activities'
+    template: 'userActivities'
+    yieldTemplates:
+      'sidebarUser': {to: 'sidebar'}
 
   #Teams
   @route 'team_home',
     path: 'team/:slug'
-    template: 'teamHome'
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      @redirect("/team/#{team.slug}/activities")
+
+  @route 'team_activities',
+    path: 'team/:slug/activities'
+    template: 'teamActivities'
     yieldTemplates:
       'sidebarTeam': {to: 'sidebar'}
     before: ->
