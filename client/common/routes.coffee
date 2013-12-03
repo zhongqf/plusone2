@@ -21,6 +21,7 @@ setDefaultTeam = ->
 
 Router.configure
   layoutTemplate: 'layoutBasic',
+  notFoundTemplate: 'notFound',
   autoRender: false
 
 Router.before requireLogin,
