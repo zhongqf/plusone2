@@ -1,2 +1,3 @@
 Template.userJoinedTeams.teams = ->
-  Teams.find({memberIds: Meteor.userId()})
+  user = this.user ? Meteor.user()
+  Teams.find({memberIds: user._id})

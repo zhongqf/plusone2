@@ -1,8 +1,8 @@
 global = exports ? this
 
-global.userDisplayName = (userId, defaultName = "Unknown User")->
-  userId = userId._id if userId._id?
-  user = Meteor.users.findOne({_id: userId})
+global.userDisplayName = (user, defaultName = "Unknown User")->
+  user = user._id if user._id?
+  user = Meteor.users.findOne({_id: user})
   return user?.profile?.name ? user?.username ? user?.emails?[0]?.address ? defaultName
 
 global.userEmail = (userId) ->
@@ -17,9 +17,9 @@ global.currentTeam = ->
   teamId = Session.get "currentTeamId"
   return Teams.findOne({_id: teamId}) if teamId
 
-
-
-
+global.isCurrentUser = (user)->
+  user = user._id if user._id?
+  return Meteor.users.findOne({_id: user})._id == Meteor.userId()
 
 Handlebars.registerHelper "userEmail", (user)->
   return global.userEmail(user)
@@ -42,6 +42,9 @@ Handlebars.registerHelper "fullDateOfTimestamp", (timestamp)->
 Handlebars.registerHelper "safeStandardTimestamp", (timestamp)->
   time = timestamp or new Date().getTime()
   return moment.unix(time/1000).format('YYYY-MM-DD')
+
+Handlebars.registerHelper "isCurrentUser", (user)->
+  return global.isCurrentUser(user)
 
 
 Handlebars.registerHelper "currentTask", ->

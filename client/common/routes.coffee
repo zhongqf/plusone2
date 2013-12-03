@@ -47,35 +47,45 @@ Router.map ->
     before: ->
       @redirect('/me/inbox')
 
-  @route 'user_inbox',
+  @route 'me_inbox',
     path: 'me/inbox'
     template: 'userInbox'
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
+    data: ->
+      user: Meteor.user()
 
-  @route 'user_joined_teams',
+  @route 'me_joined_teams',
     path: 'me/teams'
     template: "userJoinedTeams"
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
+    data: ->
+      user: Meteor.user()
 
-  @route 'user_notifications',
+  @route 'me_notifications',
     path: 'me/notifications'
     template: 'userNotifications'
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
+    data: ->
+      user: Meteor.user()
 
-  @route 'user_items',
+  @route 'me_items',
     path: 'me/items'
     template: 'userItems'
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
+    data: ->
+      user: Meteor.user()
 
-  @route 'user_activities',
+  @route 'me_activities',
     path: 'me/activities'
     template: 'userActivities'
     yieldTemplates:
       'sidebarUser': {to: 'sidebar'}
+    data: ->
+      user: Meteor.user()
 
   #Teams
   @route 'team_home',
@@ -158,3 +168,33 @@ Router.map ->
     template: 'explorerEmployees'
     yieldTemplates:
       'sidebarExplorer': { to: 'sidebar' }
+
+  @route 'user_home',
+    path: '/user/:username'
+    before: ->
+      user = Meteor.users.findOne({username: this.params.username})
+      @redirect("/user/#{user.username}/activities")
+
+  @route 'user_activities',
+    path: '/user/:username/activities'
+    template: 'userActivities'
+    yieldTemplates:
+      'sidebarUser': { to: 'sidebar' }
+    data: ->
+      user: Meteor.users.findOne({username: this.params.username})
+
+  @route 'user_items',
+    path: '/user/:username/items'
+    template: 'userItems'
+    yieldTemplates:
+      'sidebarUser': { to: 'sidebar' }
+    data: ->
+      user: Meteor.users.findOne({username: this.params.username})
+
+  @route 'user_teams',
+    path: '/user/:username/teams'
+    template: 'userJoinedTeams'
+    yieldTemplates:
+      'sidebarUser': { to: 'sidebar' }
+    data: ->
+      user: Meteor.users.findOne({username: this.params.username})

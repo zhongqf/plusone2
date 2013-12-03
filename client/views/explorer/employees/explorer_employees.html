@@ -11,7 +11,7 @@
     {{#each employees}}
     <div class="bd-b bd-light pd-t-sm pd-b-sm">
       <h4>
-        {{userDisplayName _id }}
+        <a href="/user/{{username}}">{{userDisplayName _id }}</a>
       </h4>
       <p class="text-muted">{{userEmail _id}}<p>
     </div>
