@@ -11,3 +11,10 @@ Template.sidebarTeam.navLinks =->
   links.push text: "Documents",     key: "documents",     url: "/team/#{slug}/documents"
   links.push text: "Events",        key: "events",        url: "/team/#{slug}/events"
   return links
+
+
+Template.sidebarTeam.members =->
+  team = Teams.findOne(Session.get("currentTeamId"))
+  return [] unless team
+
+  Meteor.users.find({_id: {$in: team.memberIds}})
