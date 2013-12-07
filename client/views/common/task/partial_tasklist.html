@@ -1,0 +1,8 @@
+<template name="partialTasklist">
+  <h4>{{name}}</h4>
+  <ul class="list-unstyled">
+    {{#each tasks}}
+      {{> partialTask}}
+    {{/each}}
+  </ul>
+</template>

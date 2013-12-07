@@ -1,0 +1,18 @@
+<template name="partialTask">
+  <li class="pd-b-xs">
+    <input type="checkbox" {{checkedAttribute}}/>
+
+    {{title}}
+
+    {{#if assignInfo}}
+      <span class="label label-default label-thinfont">{{assignInfo}}</span>
+    {{/if}}
+
+    {{#if commentsCount}}
+      <span class="label label-info label-thinfont">
+        <span class="glyphicon glyphicon-comment"></span>
+        {{commentsCount}}
+      </span>
+    {{/if}}
+  </li>
+</template>

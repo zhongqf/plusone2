@@ -1,17 +1,28 @@
 <template name="teamTasks">
 
   <header>
-    <br>
-    <h3>
-      Tasks in Kengen
-      <div class="right">
-        <button class="button tiny">New Tasklist</button>
-        &nbsp;
-        <button class="button tiny">...</button>
-      </div>
-    </h3>
-    <hr>
+    <div class="bd-b bg-white pd-xl">
+      <h3>
+        {{#with currentTeam}}
+        Tasks in {{name}}
+        {{/with}}
+        <div class="pull-right">
+          <button class="btn btn-success">
+            <span class="glyphicon glyphicon-plus"></span>
+            Create a tasklist
+          </button>
+          <button class="btn">
+            <span class="glyphicon glyphicon-list"></span>
+          </button>
+        </div>
+      </h3>
+    </div>
   </header>
 
+  <section class="bg-white pd-xl">
+    {{#each tasklists}}
+      {{> partialTasklist}}
+    {{/each}}
+  </section>
 </template>
 

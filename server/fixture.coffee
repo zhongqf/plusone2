@@ -90,11 +90,11 @@ generateSampleData= ->
       userId: random_id(Meteor.users)
       teamId: team._id
       tasklistId: tasklist._id
-      assigneeId: sample(team.memberIds)
+      assigneeId: if chance.bool() then sample(team.memberIds)
       done: chance.bool()
       createdAt: random_timestamp()
       updatedAt: random_timestamp()
-      dueAt: random_timestamp()
+      dueAt: if chance.bool() then random_timestamp()
       commentsCount: 0 #will update below
       lastCommentedAt: random_timestamp()  #Will update below
       lastCommentId: null #Will update below
