@@ -1,14 +1,12 @@
-<template name="teamDiscussions">
+<template name="discussion">
   <header>
     <div class="bd-b bg-white pd-xl">
       <h3>
-        {{#with currentTeam}}
-          Discussions in {{name}}
-        {{/with}}
+        {{title}}
         <div class="pull-right">
           <button class="btn btn-success">
-            <span class="glyphicon glyphicon-plus"></span>
-            Start a discussion
+            <span class="glyphicon glyphicon-comment"></span>
+            Comment
           </button>
           <button class="btn">
             <span class="glyphicon glyphicon-list"></span>
@@ -19,9 +17,9 @@
   </header>
 
   <section class="bg-white pd-xl">
-    {{#each discussions}}
-      {{> partialDiscussion}}
+    {{#each comments}}
+      {{> partialComment}}
+      <hr>
     {{/each}}
   </section>
 </template>
-

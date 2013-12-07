@@ -10,7 +10,7 @@ global.userEmail = (userId) ->
   user = Meteor.users.findOne({_id: userId})
   return user?.emails?[0]?.address
 
-global.shortDateofTimestamp = (timestamp)->
+global.shortDateOfTimestamp = (timestamp)->
   return moment.unix(timestamp/1000).calendar()
 
 global.currentTeam = ->
@@ -34,7 +34,7 @@ Handlebars.registerHelper "currentUserDisplayName", ->
   return global.userDisplayName(Meteor.userId())
 
 Handlebars.registerHelper "shortDateOfTimestamp", (timestamp)->
-  return global.shortDateofTimestamp(timestamp)
+  return global.shortDateOfTimestamp(timestamp)
 
 Handlebars.registerHelper "fullDateOfTimestamp", (timestamp)->
   moment.unix(timestamp/1000).format('llll')

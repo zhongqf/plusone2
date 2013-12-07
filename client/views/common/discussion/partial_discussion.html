@@ -1,0 +1,16 @@
+<template name="partialDiscussion">
+  <div class="bd-b bd-light pd-t-sm pd-b-sm">
+    <h4>
+      <a href="/discussion/{{_id}}">{{title}}</a>
+      <br>
+      <small class="text-muted">
+        <span class="glyphicon glyphicon-time"></span>
+        {{shortDateOfTimestamp updatedAt}}
+        &nbsp;&nbsp;
+        <span class="glyphicon glyphicon-comment"></span>
+        {{commentsCount}}
+      </small>
+    </h4>
+    <p class="text-muted">{{text}}</p>
+  </div>
+</template>

@@ -2,7 +2,6 @@ global = exports ? this
 
 @Comments = new Meteor.Collection("comments")
 
-
 global.commentIt = (projectId, objectId, text)->
 
   user = global.authenticatedUser()

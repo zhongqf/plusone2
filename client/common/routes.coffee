@@ -42,6 +42,13 @@ Router.map ->
     layoutTemplate: 'layoutNone'
     after: alreadyLoginForward
 
+  #Common Object
+  @route 'discussion',
+    path: '/discussion/:id'
+    template: 'discussion'
+    data: ->
+      Discussions.findOne(this.params.id)
+
   #Me
   @route 'me',
     path: '/me'

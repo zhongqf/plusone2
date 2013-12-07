@@ -95,6 +95,10 @@ generateSampleData= ->
       createdAt: random_timestamp()
       updatedAt: random_timestamp()
       dueAt: random_timestamp()
+      commentsCount: 0 #will update below
+      lastCommentedAt: random_timestamp()  #Will update below
+      lastCommentId: null #Will update below
+      lastCommentUserId: null #Will update below
       tags: random_tags()
 
   #Discussions
@@ -107,7 +111,9 @@ generateSampleData= ->
       userId: random_id(Meteor.users)
       createdAt: random_timestamp()
       updatedAt: random_timestamp()
-      lastRepliedAt: random_timestamp()  #Will update below
+      commentsCount: 0 #will update below
+      lastCommentedAt: random_timestamp()  #Will update below
+      lastCommentUserId: null #Will update below
       lastCommentId: null #Will update below
 
   #Comments
