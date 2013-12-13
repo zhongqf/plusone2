@@ -7,3 +7,7 @@ Deps.autorun ->
 
 Meteor.subscribe 'allUsers'
 Meteor.subscribe 'teams'
+
+Meteor.subscribe 'userDiscussions'
+Meteor.subscribe 'userTasks'
+

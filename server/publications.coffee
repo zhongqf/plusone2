@@ -30,4 +30,22 @@ Meteor.publish "teamActivities", (teamId)->
   return Activities.find({teamId: teamId})
 
 
+Meteor.publish "userDiscussions", ->
+  discussions = Discussions.find({userId: this.userId})
+  ids = _.map discussions.fetch(), (d)-> d._id
+
+  return [
+    discussions,
+    Comments.find({objectId: {$in: ids}})
+  ]
+
+Meteor.publish "userTasks", ->
+  tasks = Tasks.find({userId: this.userId})
+  ids = _.map tasks.fetch(), (t)-> t._id
+
+  return [
+    tasks,
+    Comments.find({objectId: {$in: ids}})
+  ]
+
 #User Objects

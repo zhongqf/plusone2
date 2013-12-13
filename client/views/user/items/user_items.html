@@ -1,3 +1,33 @@
 <template name="userItems">
-  User Items
+  <header>
+    <div class="bd-b bg-white pd-xl">
+      <h3>
+        {{userDisplayName user}} Contents
+      </h3>
+      <div class="pull-right">
+        <ul class="nav nav-pills">
+          <li class="active"><a href="#discussions" data-toggle="pill">Discussions</a></li>
+          <li><a href="#tasks" data-toggle="pill">Tasks</a></li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <section class="bg-white pd-xl">
+
+    <div class="tab-content">
+      <div class="tab-pane active" id="discussions">
+        {{#each discussions}}
+          {{> partialDiscussion}}
+        {{/each}}
+      </div>
+      <div class="tab-pane" id="tasks">
+        <ul class="list-unstyled">
+          {{#each tasks}}
+            {{> partialTask}}
+          {{/each}}
+        </ul>
+      </div>
+    </div>
+  </section>
 </template>
