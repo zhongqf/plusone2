@@ -69,6 +69,14 @@ Router.map ->
     data: ->
       user: Meteor.user()
 
+  @route 'me_profile',
+    path: 'me/profile'
+    template: 'userEditProfile'
+    yieldTemplates:
+      'sidebarUser': {to: 'sidebar'}
+    data: ->
+     user: Meteor.user()
+
   @route 'me_joined_teams',
     path: 'me/teams'
     template: "userJoinedTeams"

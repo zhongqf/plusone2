@@ -46,15 +46,20 @@ generateSampleData= ->
   #Users
   console.log "  Generating users ..."
   _(20).times ->
-    name = chance.name()
-    username = name.split(/[ -]/).join("_").toLowerCase()
+    first = chance.first()
+    last = chance.last()
+    username = "#{first} #{last}".split(/[ -]/).join("_").toLowerCase()
+    address = username + "@" + chance.domain()
     Accounts.createUser
-      email: username + "@" + chance.domain()
+      email: address
       username: username
       password: "123456"
       joinedAt: random_timestamp()
       profile:
-        name: name
+        first_name: first
+        last_name: last
+        name: "#{first} #{last}"
+        email: address
 
   #Teams
   console.log "  Generating teams ..."

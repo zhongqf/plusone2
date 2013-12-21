@@ -25,3 +25,16 @@ global.buildChangeObject = (oldObj, newObj)->
   return result
 
 
+Meteor.methods
+  updateProfile: (profile)->
+    user = global.authenticatedUser()
+    #todo: update user email
+    Meteor.users.update
+      _id: user._id,
+        $set:
+          profile:
+            first_name: profile.first_name
+            last_name: profile.last_name
+            name: "#{profile.first_name} #{profile.last_name}"
+            email: profile.email
+

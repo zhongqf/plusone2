@@ -4,6 +4,13 @@
     <div class="text-center">
       <img src="/images/avatar.jpg" alt="Eric Zhong" />
       <h3>{{userDisplayName user}}</h3>
+
+      {{#if isCurrentUser user}}
+        <a href="/me/profile" class="btn btn-sm btn-success">
+          <i class="fa fa-edit"></i>
+          Edit Profile
+        </a>
+      {{/if}}
     </div>
   </div>
 

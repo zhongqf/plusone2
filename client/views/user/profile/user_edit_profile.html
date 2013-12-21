@@ -1,0 +1,42 @@
+<template name="userEditProfile">
+  <header>
+    <div class="bd-b bg-white pd-xl">
+      <h3>
+        Edit Profile
+        <div class="pull-right">
+          <button class="btn btn-success pjs-update-profile">
+            <i class="fa fa-save"></i>
+            Save Profile
+          </button>
+        </div>
+      </h3>
+    </div>
+  </header>
+
+  <section class="bg-white pd-xl">
+    <form class="form-horizontal" role="form">
+      {{#with user}}
+        {{#with profile}}
+          <div class="form-group">
+            <label for="userFirstname" class="col-sm-2 control-label">First name</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="userFirstname" placeholder="First name" value="{{first_name}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userLastname" class="col-sm-2 control-label">Last name</label>
+            <div class="col-sm-4">
+              <input type="text" class="form-control" id="userLastname" placeholder="Last name" value="{{last_name}}">
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="userEmail" class="col-sm-2 control-label">Email address</label>
+            <div class="col-sm-4">
+              <input type="email" class="form-control" id="userEmail" placeholder="Email address" value="{{email}}">
+            </div>
+          </div>
+        {{/with}}
+      {{/with}}
+    </form>
+  </section>
+</template>
