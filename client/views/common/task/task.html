@@ -1,0 +1,32 @@
+<template name="task">
+  <header>
+    <div class="bd-b bg-white pd-xl">
+      <h3>
+        <input type="checkbox" {{checkedAttribute}}/>
+        {{title}}
+
+        {{#if assignInfo}}
+        <span class="label label-default label-thinfont">{{assignInfo}}</span>
+        {{/if}}
+
+        <div class="pull-right">
+          <button class="btn btn-success">
+            <i class="fa fa-comment"></i>
+            Comment
+          </button>
+          <button class="btn">
+            <i class="fa fa-ellipsis-h"></i>
+          </button>
+        </div>
+      </h3>
+      {{description}}
+    </div>
+  </header>
+
+  <section class="bg-white pd-xl">
+    {{#each comments}}
+    {{> partialComment}}
+    <hr>
+    {{/each}}
+  </section>
+</template>

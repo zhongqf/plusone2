@@ -49,6 +49,12 @@ Router.map ->
     data: ->
       Discussions.findOne(this.params.id)
 
+  @route 'task',
+    path: '/task/:id'
+    template: 'task'
+    data: ->
+      Tasks.findOne(this.params.id)
+
   #Me
   @route 'me',
     path: '/me'
