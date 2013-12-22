@@ -18,3 +18,8 @@ Template.sidebarTeam.members =->
   return [] unless team
 
   Meteor.users.find({_id: {$in: team.memberIds}})
+
+Template.sidebarTeam.events
+  'click .pjs-quit-team': (event)->
+    event.preventDefault()
+    Meteor.call "quitTeam", Session.get("currentTeamId")

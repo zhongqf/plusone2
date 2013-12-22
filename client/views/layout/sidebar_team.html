@@ -4,6 +4,12 @@
       {{#with currentTeam}}
         <h3>{{name}}</h3>
       {{/with}}
+      {{#if isTeamMember currentTeam}}
+        <a href="#" class="btn btn-sm btn-success pjs-quit-team">
+          <i class="fa fa-exit"></i>
+          Quit Team
+        </a>
+      {{/if}}
     </div>
   </div>
 

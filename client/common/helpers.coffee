@@ -21,6 +21,13 @@ global.isCurrentUser = (user)->
   user = user._id if user._id?
   return Meteor.users.findOne({_id: user})._id == Meteor.userId()
 
+global.isTeamMember = (team)->
+  team = team._id if team._id?
+  return Teams.find({$and: [{_id: team},{memberIds: Meteor.userId() }]}).count() > 0
+
+Handlebars.registerHelper "isTeamMember", (team)->
+  return global.isTeamMember(team)
+
 Handlebars.registerHelper "userEmail", (user)->
   return global.userEmail(user)
 
