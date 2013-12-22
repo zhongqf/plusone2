@@ -23,3 +23,7 @@ Template.sidebarTeam.events
   'click .pjs-quit-team': (event)->
     event.preventDefault()
     Meteor.call "quitTeam", Session.get("currentTeamId")
+
+  'click .pjs-join-team': (event)->
+    event.preventDefault()
+    Meteor.call "joinTeam", Session.get("currentTeamId")
