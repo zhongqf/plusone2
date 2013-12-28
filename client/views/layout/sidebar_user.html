@@ -1,12 +1,12 @@
 <template name="sidebarUser">
 
   <div class="pd bd-b bd-light">
-    <div class="text-center">
+    <div class="uk-panel uk-text-center">
       <img src="/images/avatar.jpg" alt="Eric Zhong" />
       <h3>{{userDisplayName user}}</h3>
 
       {{#if isCurrentUser user}}
-        <a href="/me/profile" class="btn btn-sm btn-success">
+        <a href="/me/profile" class="uk-button uk-button-small uk-button-success">
           <i class="fa fa-edit"></i>
           Edit Profile
         </a>
@@ -15,7 +15,7 @@
   </div>
 
   <div class="pd">
-    <ul class="nav nav-pills nav-stacked">
+    <ul class="uk-nav uk-nav-side">
       {{#each navLinks }}
         <li>
           <a href="{{url}}">{{text}}</a>
