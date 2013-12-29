@@ -134,6 +134,15 @@ Router.map ->
       team = Teams.findOne({slug: this.params.slug})
       Session.set("currentTeamId", team._id) if team
 
+  @route 'new_team_discussions',
+    path: '/team/:slug/discussions/new'
+    template: 'newTeamDiscussion'
+    yieldTemplates:
+      'sidebarTeam': {to: 'sidebar'}
+    before: ->
+      team = Teams.findOne({slug: this.params.slug})
+      Session.set("currentTeamId", team._id) if team
+
   @route 'team_documents',
     path: '/team/:slug/documents'
     template: 'teamDocuments'

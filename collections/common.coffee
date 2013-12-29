@@ -1,5 +1,9 @@
 global = exports ? this
 
+global.stringPresentMatcher = Match.Where (x)->
+  check(x, String)
+  return x.length > 0
+
 global.authenticatedUser = ->
   user = Meteor.user()
   if (!user)

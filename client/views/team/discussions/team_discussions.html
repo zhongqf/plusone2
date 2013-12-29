@@ -1,20 +1,20 @@
 <template name="teamDiscussions">
   <header>
     <div class="bd-b bg-white pd-xl">
+      {{#with currentTeam}}
       <h3>
-        {{#with currentTeam}}
           Discussions in {{name}}
-        {{/with}}
         <div class="pull-right">
-          <button class="uk-button uk-button-success">
+          <a href="/team/{{slug}}/discussions/new" class="uk-button uk-button-success">
             <i class="fa fa-plus"></i>
             Start a discussion
-          </button>
+          </a>
           <button class="uk-button">
             <i class="fa fa-ellipsis-h"></i>
           </button>
         </div>
       </h3>
+      {{/with}}
     </div>
   </header>
 

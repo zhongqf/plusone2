@@ -4,26 +4,22 @@
       <h3>
         Edit Profile
         <div class="pull-right">
-          <button class="uk-button uk-button-success pjs-update-profile">
-            <i class="fa fa-save"></i>
-            Save Profile
-          </button>
         </div>
       </h3>
     </div>
   </header>
 
   <section class="bg-white pd-xl">
-    <form class="uk-form uk-form-stacked" role="form">
+    <form class="uk-form uk-form-stacked pjs-update-profile-form" role="form">
       {{#with user}}
         {{#with profile}}
           <div class="uk-form-row">
             <label for="userFirstname" class="col-sm-2 uk-form-label">First name</label>
-            <input type="text" class="uk-width-1-4" id="userFirstname" placeholder="First name" value="{{first_name}}">
+            <input type="text" class="uk-width-1-4" id="userFirstname" placeholder="First name" value="{{first_name}}" required>
           </div>
           <div class="uk-form-row">
             <label for="userLastname" class="col-sm-2 uk-form-label">Last name</label>
-            <input type="text" class="uk-width-1-4" id="userLastname" placeholder="Last name" value="{{last_name}}">
+            <input type="text" class="uk-width-1-4" id="userLastname" placeholder="Last name" value="{{last_name}}" required>
           </div>
           <div class="uk-form-row">
             <label for="userEmail" class="uk-form-label">Email address</label>
@@ -31,6 +27,11 @@
           </div>
         {{/with}}
       {{/with}}
+      <hr/>
+      <button type="submit" class="uk-button uk-button-success">
+        <i class="fa fa-save"></i>
+        Save Profile
+      </button>
     </form>
   </section>
 </template>

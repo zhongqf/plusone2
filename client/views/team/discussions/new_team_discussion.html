@@ -1,0 +1,23 @@
+<template name="newTeamDiscussion">
+  <form class="uk-form pjs-start-discussion-form">
+    <header>
+      <div class="bd-b bg-white pd-xl">
+        <h3>
+          {{#with currentTeam}}
+          Start discussions in {{name}}
+          {{/with}}
+        </h3>
+        <input type="text" class="uk-width-1-1 uk-form-large" title="Required!" id="discussionTitle" placeholder="Discussion Title" required>
+      </div>
+    </header>
+
+    <section class="bg-white pd-xl">
+      <textarea class="uk-width-1-1" rows="5" id="discussionText" placeholder="Discussion Contents"></textarea>
+      <hr>
+      <button type="submit" class="uk-button uk-button-primary">
+        <i class="fa fa-plus"></i>
+        Start Discussioin
+      </button>
+    </section>
+  </form>
+</template>
