@@ -1,17 +1,17 @@
 <template name="sidebarTeam">
   <div class="pd bd-b bd-light">
-    <div class="text-center">
+    <div class="uk-panel uk-text-center">
       {{#with currentTeam}}
         <h3>{{name}}</h3>
       {{/with}}
       {{#if isTeamMember currentTeam}}
-        <a href="#" class="btn btn-sm btn-success pjs-quit-team">
-          <i class="fa fa-exit"></i>
+        <a href="#" class="uk-button uk-button-success uk-button-small pjs-quit-team">
+          <i class="fa fa-arrow-circle-left"></i>
           Quit Team
         </a>
       {{else}}
-        <a href="#" class="btn btn-sm btn-success pjs-join-team">
-          <i class="fa fa-exit"></i>
+        <a href="#" class="uk-button uk-button-success uk-button-small pjs-join-team">
+          <i class="fa fa-plus"></i>
           Join
         </a>
       {{/if}}
@@ -19,7 +19,7 @@
   </div>
 
   <div class="pd">
-    <ul class="nav nav-pills nav-stacked">
+    <ul class="uk-nav uk-nav-side">
       {{#each navLinks }}
         <li>
           <a href="{{url}}">{{text}}</a>
@@ -29,7 +29,7 @@
   </div>
 
   <div class="pd">
-    <ul>
+    <ul class="uk-list">
       {{#each members}}
         <li>
           <a href="/user/{{username}}">
