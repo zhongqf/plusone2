@@ -24,3 +24,13 @@ Meteor.methods
 
       return discussionId
 
+  commentDiscussion: (discussionId, commentInfo)->
+    check(commentInfo, {
+      text: global.stringPresentMatcher
+    })
+
+    discussion = Discussions.findOne(discussionId)
+    teamId = discussion.teamId
+
+    return global.commentIt(teamId, discussionId,commentInfo.text)
+

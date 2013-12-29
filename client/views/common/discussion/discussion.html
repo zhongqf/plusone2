@@ -4,10 +4,6 @@
       <h3>
         {{title}}
         <div class="pull-right">
-          <button class="uk-button uk-button-success">
-            <i class="fa fa-comment"></i>
-            Comment
-          </button>
           <button class="uk-button">
             <i class="fa fa-ellipsis-h"></i>
           </button>
@@ -22,5 +18,13 @@
       {{> partialComment}}
       <hr>
     {{/each}}
+    <form class="uk-form pjs-comment-form">
+      <textarea class="uk-width-1-1" id="commentContent" rows="5" required></textarea>
+      <hr/>
+      <button type="submit" class="uk-button uk-button-primary">
+        <i class="fa fa-plus"></i>
+        Comment
+      </button>
+    </form>
   </section>
 </template>
