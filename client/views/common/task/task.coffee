@@ -15,3 +15,13 @@ Template.task.assignInfo = ->
     assignInfo.push global.shortDateOfTimestamp(this.dueAt)
 
   return assignInfo.join(" · ")
+
+Template.task.events
+  'submit .pjs-comment-form': (event, templ)->
+    event.preventDefault()
+    text = templ.find("#commentContent").value
+    Meteor.call "commentTask", this._id, {text: text}, (error, result)->
+      if error
+        alert(error)
+      else
+        templ.find("#commentContent").value = ""
