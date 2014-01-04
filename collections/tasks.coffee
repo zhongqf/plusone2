@@ -14,6 +14,25 @@ Meteor.methods
 
     return global.commentIt(teamId, taskId, commentInfo.text)
 
+  addTask: (tasklistId, taskInfo)->
+    user = global.authenticatedUser()
+    tasklist = Tasklists.findOne(tasklistId)
+
+    if user && tasklist
+      taskInfo = _.extend(_.pick(taskInfo, 'title'), {
+        teamId : tasklist.teamId
+        tasklistId: tasklistId
+        userId: user._id
+        done: false
+        createdAt: new Date().getTime()
+        updatedAt: new Date().getTime()
+        commentsCount : 0
+      })
+
+      taskId = Tasks.insert taskInfo
+      return taskId
+
+
   #newTask: (tasklistId)->
   #  user = global.authenticatedUser()
   #  tasklist = Tasklists.findOne(tasklistId)

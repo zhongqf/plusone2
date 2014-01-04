@@ -1,8 +1,25 @@
 <template name="partialTasklist">
-  <h4>{{name}}</h4>
-  <ul class="uk-list">
-    {{#each tasks}}
-      {{> partialTask}}
-    {{/each}}
-  </ul>
+  <div class="pjs-tasklist" data-pjs-tasklist-id="{{_id}}">
+    <h4>{{name}}</h4>
+    <ul class="uk-list pjs-tasks">
+      {{#each tasks}}
+        {{> partialTask}}
+      {{/each}}
+
+      {{#if addingMode}}
+        <form class="uk-form">
+          <input type="text" class="pjs-new-task-content uk-width-1-3" placeholder="New Task" autofocus="true">
+          <button type="submit" class="uk-button uk-button-success uk-button-small">Add Task</button>
+          or
+          <a href="#" class="pjs-cancel-add-task">
+            <span class="uk-text-small">Cancel</span>
+          </a>
+        </form>
+      {{else}}
+        <a href="#" class="pjs-add-task">
+          <span class="uk-text-small">Add Task</span>
+        </a>
+      {{/if}}
+    </ul>
+  </div>
 </template>
