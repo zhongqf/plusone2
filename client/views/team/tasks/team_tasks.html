@@ -7,10 +7,12 @@
         Tasks in {{name}}
         {{/with}}
         <div class="pull-right">
-          <button class="uk-button uk-button-success">
+          {{#unless addingMode}}
+          <button class="uk-button uk-button-success pjs-new-tasklist">
             <i class="fa fa-plus"></i>
             Create a tasklist
           </button>
+          {{/unless}}
           <button class="uk-button">
             <i class="fa fa-ellipsis-h"></i>
           </button>
@@ -20,6 +22,18 @@
   </header>
 
   <section class="bg-white pd-xl">
+    {{#if addingMode}}
+      <form class="uk-form mg-b">
+        <input type="text" class="mg-b-sm uk-width-1-3 uk-form-large pjs-new-tasklist-content" placeholder="New Tasklist" autofocus="true">
+        <br/>
+        <button type="submit" class="uk-button uk-button-success uk-button-small">Add Tasklist</button>
+        or
+        <a href="#" class="pjs-cancel-add-tasklist">
+          <span class="uk-text-small">Cancel</span>
+        </a>
+      </form>
+    {{/if}}
+
     {{#each tasklists}}
       {{> partialTasklist }}
     {{/each}}

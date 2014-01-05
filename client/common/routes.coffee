@@ -10,6 +10,13 @@ alreadyLoginForward = ->
     setDefaultTeam()
     @redirect("/me")
 
+clearSomeSession = ->
+  Session.set("addingTasklistMode", false)
+  _.each _.keys(Session.keys), (name)->
+    if _.str.startsWith(name, "addingTaskMode")
+      Session.set(name, false)
+
+
 #setDefaultProject = ->
 #  avaiable_projects = Projects.find().fetch()
 #  if avaiable_projects.length > 0
@@ -29,6 +36,8 @@ Router.before requireLogin,
 
 Router.before setDefaultTeam,
   except: ['login']
+
+Router.before clearSomeSession
 
 Router.map ->
   @route 'root',

@@ -83,6 +83,7 @@ generateSampleData= ->
       teamId: random_id(Teams)
       userId: random_id(Meteor.users)
       createdAt: random_timestamp()
+      updatedAt: random_timestamp()
 
   #Tasks
   console.log "  Generating tasks ..."
