@@ -13,3 +13,9 @@ Template.partialTask.assignInfo = ->
 
   return assignInfo.join(" · ")
 
+Template.partialTask.events
+  "change input[type='checkbox']": (event, templ)->
+    done = event.currentTarget.checked
+    taskInfo = {done: done}
+    Meteor.call "updateTask", this._id, taskInfo
+

@@ -25,3 +25,8 @@ Template.task.events
         alert(error)
       else
         templ.find("#commentContent").value = ""
+
+  "change input[type='checkbox']": (event, templ)->
+    done = event.currentTarget.checked
+    taskInfo = {done: done}
+    Meteor.call "updateTask", this._id, taskInfo

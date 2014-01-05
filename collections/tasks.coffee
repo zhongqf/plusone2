@@ -32,6 +32,18 @@ Meteor.methods
       taskId = Tasks.insert taskInfo
       return taskId
 
+  updateTask: (taskId, taskInfo)->
+    user = global.authenticatedUser()
+    task = Tasks.findOne(taskId)
+
+    if user && task
+      whitelist = ['tasklistId', 'done','title','description','assigneeId', 'dueAt', 'tags']
+      newTaskInfo = _.pick(taskInfo, whitelist)
+      newTaskInfo.updatedAt = new Date().getTime()
+
+
+      return Tasks.update({_id: taskId}, {$set: newTaskInfo})
+
 
   #newTask: (tasklistId)->
   #  user = global.authenticatedUser()
