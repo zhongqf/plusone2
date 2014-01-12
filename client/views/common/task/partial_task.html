@@ -5,15 +5,35 @@
     <a href="/task/{{_id}}">{{title}}</a>
 
     {{#if assignInfo}}
-      <span class="uk-badge uk-badge-notification label-thinfont">{{assignInfo}}</span>
+      <a class="pjs-show-assigninfo hover-opacity" href="#">
+        <span class="uk-badge uk-badge-notification label-thinfont pjs-balloon-dialog">{{assignInfo}}</span>{{>partialTaskAssigneeDialog}}</a>
     {{/if}}
 
     {{#if commentsCount}}
       <span class="uk-badge uk-badge-notification label-thinfont">
         <i class="fa fa-comments"></i>
-
         {{commentsCount}}
       </span>
     {{/if}}
   </li>
+</template>
+
+<template name="partialTaskAssigneeDialog">
+  <span style="display: none;">
+    <strong>Assign to:</strong>
+    <div>
+      <select class="pjs-change-assignee">
+        <option {{unassignedSelected}}>Unassigned</option>
+        <option disabled>----------------</option>
+        {{#each members}}
+          <option {{selected}} value='{{_id}}'>{{userDisplayName _id}}</option>
+        {{/each}}
+      </select>
+    </div>
+    <br/>
+    <strong>Set the due date:</strong>
+    <hr/>
+    <span class="pjs-task-calendar" data-pjs-task-id="{{_id}}"></span>
+  </span>
+
 </template>

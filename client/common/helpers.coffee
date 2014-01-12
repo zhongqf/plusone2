@@ -25,6 +25,12 @@ global.isTeamMember = (team)->
   team = team._id if team._id?
   return Teams.find({$and: [{_id: team},{memberIds: Meteor.userId() }]}).count() > 0
 
+global.isEquals = (obj, value, then_result, else_result)->
+  return if obj == value then then_result else else_result
+
+global.isTrue = (obj, then_result, else_result)->
+  return if obj then then_result else else_result
+
 Handlebars.registerHelper "isTeamMember", (team)->
   return global.isTeamMember(team)
 
@@ -57,3 +63,9 @@ Handlebars.registerHelper "isCurrentUser", (user)->
 Handlebars.registerHelper "currentTask", ->
   return Tasks.findOne
     _id: Session.get("currentTaskId")
+
+Handlebars.registerHelper "isEquals", (obj, value, then_result, else_result)->
+  return global.isEquals(obj, value, then_result, else_result)
+
+Handlebars.registerHelper "isTrue", (obj, then_result, else_result)->
+  return global.isTrue(obj, then_result, else_result)

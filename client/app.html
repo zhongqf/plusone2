@@ -10,4 +10,52 @@
 
 <template name="body">
   {{renderRouter}}
+
+  <script id="pjs-task-calendar-template" type="text/template">
+    <div>
+      <div class="uk-datepicker" style="display: block;">
+        <div class="uk-datepicker-nav">
+          <a href="" class="uk-datepicker-previous clndr-previous-button"></a>
+          <a href="" class="uk-datepicker-next clndr-next-button"></a>
+          <div class="uk-datepicker-heading">
+            <%= month %> <%= year %>
+          </div>
+        </div>
+        <table class="uk-datepicker-table">
+          <thead>
+          <tr>
+            <% _.each(daysOfTheWeek, function(day){ %>
+            <th><%= day%></th>
+            <% }) %>
+          </tr>
+          </thead>
+          <tbody>
+          <% for(var i = 0; i < numberOfRows; i++){ %>
+          <tr>
+            <% for(var j = 0; j < 7; j++){ %>
+            <% var d = j + i * 7; %>
+            <td>
+              <a href="#" class='<%= days[d].classes %>'>
+                <%= days[d].day %>
+              </a>
+            </td>
+            <% } %>
+          </tr>
+          <% } %>
+          <!--
+          <tr>
+            <td><a href="" class="uk-datepicker-table-muted" data-date="2013-12-30T00:00:00+08:00">30</a></td>
+            <td><a href="" class="uk-datepicker-table-muted" data-date="2013-12-31T00:00:00+08:00">31</a></td>
+            <td><a href="" class="" data-date="2014-01-01T00:00:00+08:00">1</a></td>
+            <td><a href="" class="" data-date="2014-01-02T00:00:00+08:00">2</a></td>
+            <td><a href="" class="" data-date="2014-01-03T00:00:00+08:00">3</a></td>
+            <td><a href="" class="" data-date="2014-01-04T00:00:00+08:00">4</a></td>
+            <td><a href="" class="uk-active" data-date="2014-01-05T00:00:00+08:00">5</a></td>
+          </tr>
+          -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </script>
 </template>
