@@ -1,3 +1,10 @@
+@media (min-width: 768px) {
+  html, body {
+    overflow-y: hidden;
+  }
+}
+
+
 //Common and Helpers
 img, object, embed {
   max-width: 100%;
@@ -6,5 +13,72 @@ img, object, embed {
 
 img {
   display: inline-block;
+}
+
+.text-light {
+  color: #c3c3c3;
+}
+
+//Global Header
+#global_header {
+  ul.nav > li > a {
+    font-weight: 500;
+  }
+}
+
+//Sidebar
+#sidebar .nav-primary {
+  ul > li > a {
+    font-weight: 500;
+    padding-bottom: 10px;
+    padding-top: 10px;
+  }
+}
+
+//Conversation Detail Page
+#conversation_detail {
+  & > header > p {
+    margin: 0.5em 0 1em 0;
+  }
+}
+
+
+//Comments
+.comment-list:before {
+  content: none;
+}
+.comment-list .comment-item {
+  .comment-body{
+    margin-bottom: 1em;
+    p {
+      margin-bottom: 0em;
+      margin-top: 0;
+
+      span.checkbox {
+        margin-bottom: 0;
+        margin-top: 0;
+      }
+    }
+  }
+
+
+  padding-bottom: 0;
+  padding-top: 1em;
+  border-top: 1px solid #f7f8f9;
+
+  &:first-child {
+    border-top: none;
+  }
+}
+
+.comment-item-simple {
+  a {
+    color: #979797;
+  }
+
+  & + .comment-item-simple {
+    border-top: 0px;
+    margin-top: -2em;
+  }
 }
 
