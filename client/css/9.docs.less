@@ -26,6 +26,86 @@ img {
   }
 }
 
+//Global Side Navigation
+.pcs-sidenav-container {
+  header {
+    padding: 8px;
+    &:hover {
+      background-color: #414957 !important;
+      & > div > a {
+        opacity: 1;
+        background-color: #21242b;
+      }
+    }
+
+    & > div {
+      margin-top: 2px;
+      & > a {
+        opacity: 0.2;
+        background-color: transparent;
+        border: none;
+      }
+    }
+  }
+
+  ul.nav > li > a {
+    padding: 5px 5px 5px 20px;
+  }
+
+  ul.nav > li.active > a {
+    background-color: #5c677c !important;
+    border-left: 5px solid #92cf5c;
+    padding-left: 15px;
+  }
+}
+//Global User Nav
+#global_user_nav {
+  header {
+    background-color: #21242b;
+  }
+}
+
+//Global Workspace Nav
+#global_workspace_nav {
+  header {
+    cursor: pointer;
+    padding: 4px 8px 6px 14px;
+    & > a {
+      text-transform: uppercase;
+    }
+  }
+}
+
+
+//Searcher
+#global_searcher {
+  position: relative;
+   i {
+    position: absolute;
+    z-index: 1;
+    left: 8px;
+    top: 50%;
+    margin-top: -7px;
+    color: #bbb;
+  }
+  input[type="text"] {
+    text-indent: 1.5em;
+    height: auto !important;
+    padding: 4px;
+    background-color: #29313a;
+    font-size: 13px;
+
+    &:focus {
+      background-color: white;
+    }
+  }
+}
+
+//Logo
+#logo_container {
+  padding: 10px;
+}
+
 //Sidebar
 #sidebar .nav-primary {
   ul > li > a {
