@@ -1,0 +1,196 @@
+
+<template name="mockup_team_files">
+
+  <section class="hbox stretch">
+    {{> mockup_team_file_list}}
+    {{> mockup_team_file_detail}}
+  </section>
+
+</template>
+
+<template name="mockup_team_file_list">
+
+  <aside class="bg-white">
+    <section class="vbox">
+      {{> mockup_team_file_list_header}}
+      {{> mockup_team_file_list_content}}
+    </section>
+  </aside>
+</template>
+
+<template name="mockup_team_file_list_header">
+  <header class="header bg-light lter bg-gradient b-b clearfix">
+    <div class="btn-group pull-right">
+      <button class="btn btn-sm btn-white dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
+      <ul class="dropdown-menu text-left text-sm">
+        <li><a href="#">Read</a></li>
+        <li><a href="#">Unread</a></li>
+        <li><a href="#">Starred</a></li>
+        <li><a href="#">Unstarred</a></li>
+      </ul>
+    </div>
+    <button class="btn btn-sm btn-success">
+      <i class="fa fa-upload"></i>
+      Upload Files
+    </button>
+  </header>
+</template>
+
+<template name="mockup_team_file_list_content">
+
+  <section class="scrollable has-scrollbar">
+    <div class="pcs-filelist">
+    <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
+      <li class="list-group-item">
+        <div class="file-type-icon png pull-left m-l-xs m-r"><span>png</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">113KB</small>
+          <strong class="block">macpro.png</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Last Updated by Marrian Jason on Feb 28
+            </span>
+            <span class="text-muted">
+              2 Versions
+            </span>
+          </small>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <div class="file-type-icon pptx pull-left m-l-xs m-r"><span>pptx</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">2.3MB</small>
+          <strong class="block">CRMReport-201303.pptx</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Uploaded by Ma Haiyan on Nov 8
+            </span>
+          </small>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <div class="file-type-icon txt pull-left m-l-xs m-r"><span>txt</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">13KB</small>
+          <strong class="block">Meeting Memo.txt</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Uploaded by Wei Danli on Dec 22
+            </span>
+          </small>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <div class="file-type-icon xlsx  pull-left m-l-xs m-r"><span>xlsx</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">456KB</small>
+          <strong class="block">2013Plan.xlsx</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Last updated by Song Yang on 3 days ago
+            </span>
+            <span class="text-muted">
+              4 Versions
+            </span>
+          </small>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <div class="file-type-icon zip  pull-left m-l-xs m-r"><span>zip</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">34.5MB</small>
+          <strong class="block">SH-GIB-0132.zip</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Uploaded by Yang Baohua on about 1 months ago
+            </span>
+          </small>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <div class="file-type-icon doc pull-left m-l-xs m-r"><span>doc</span></div>
+        <a href="#" class="clear">
+          <small class="pull-right">233KB</small>
+          <strong class="block">Morgen Kntooh.doc</strong>
+          <small class="pcs-filemeta">
+            <span class="text-muted">
+              Uploaded by Sun Li on about 3 months ago
+            </span>
+          </small>
+        </a>
+      </li>
+    </ul>
+    </div>
+  </section>
+</template>
+
+<template name="mockup_team_file_detail">
+
+  <aside class="col-lg-6 b-l">
+    <section class="vbox">
+      <section class="scrollable has-scrollbar">
+
+      <div class="wrapper pcs-item-detail" id="file_detail">
+      <header>
+        <div class="clearfix">
+          <div class="btn-group m-b-sm pcs-toolbar pull-right">
+            <button type="button" class="btn btn-default btn-sm">
+              <i class="fa fa-check-square-o fa-fw"></i>
+            </button>
+            <button type="button" class="btn btn-success btn-sm">
+              <i class="fa fa-paperclip fa-fw"></i>
+            </button>
+            <button type="button" class="btn btn-default btn-sm">
+              <i class="fa fa-star-o fa-fw"></i>
+            </button>
+            <div class="btn-group pull-right">
+              <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                More <span class="caret"></span>
+              </button>
+              <ul class="dropdown-menu text-left text-sm">
+                <li><a href="#">Dropdown link</a></li>
+                <li><a href="#">Dropdown link</a></li>
+                <li><a href="#">Dropdown link</a></li>
+              </ul>
+            </div>
+          </div></div>
+      </header>
+
+      <article class="pcs-file clearfix">
+        <p class="h2 font-thin">
+          <span>macpro.png</span>
+        </p>
+
+        <div>
+          <img src="/images/macpro.png" class="pcs-file-thumb pull-left"/>
+        </div>
+
+        <p>
+          <ul class="list-unstyled">
+            <li class="text-muted">
+              123KB
+            </li>
+            <li class="text-muted">
+              Last updated at 2013/12/22 10:23am
+            </li>
+            <li class="text-muted">
+              by Zhong Qinfeng
+            </li>
+            <li class="text-muted">
+              2 Versions
+            </li>
+          </ul>
+          Lorem ipsum dolor sit amet, consecteter adipiscing elit, sed diam nonummy nibh euismod tincidunt ut
+          laoreet.
+        </p>
+      </article>
+
+      </div>
+      </div>
+
+
+      </section>
+    </section>
+  </aside>
+</template>
+

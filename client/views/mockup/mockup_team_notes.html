@@ -1,24 +1,24 @@
 
-<template name="mockup_team_conversation">
+<template name="mockup_team_notes">
 
   <section class="hbox stretch">
-    {{> mockup_team_conversation_list}}
-    {{> mockup_team_conversation_detail}}
+    {{> mockup_team_note_list}}
+    {{> mockup_team_note_detail}}
   </section>
 
 </template>
 
-<template name="mockup_team_conversation_list">
+<template name="mockup_team_note_list">
 
   <aside class="bg-white">
     <section class="vbox">
-      {{> mockup_team_conversation_list_header}}
-      {{> mockup_team_conversation_list_content}}
+      {{> mockup_team_note_list_header}}
+      {{> mockup_team_note_list_content}}
     </section>
   </aside>
 </template>
 
-<template name="mockup_team_conversation_list_header">
+<template name="mockup_team_note_list_header">
   <header class="header bg-light lter bg-gradient b-b clearfix">
     <div class="btn-group pull-right">
       <button class="btn btn-sm btn-white dropdown-toggle" data-toggle="dropdown"><i class="fa fa-bars"></i></button>
@@ -31,244 +31,67 @@
     </div>
     <button class="btn btn-sm btn-success">
       <i class="fa fa-plus"></i>
-      New Conversation
+      Create Note
     </button>
   </header>
 </template>
 
-<template name="mockup_team_conversation_list_content">
+<template name="mockup_team_note_list_content">
 
   <section class="scrollable has-scrollbar">
-  <div class="tab-content">
-  <div class="tab-pane active" id="activity">
-  <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 minuts ago</small>
-      <strong class="block">Drew Wllon</strong>
-      <small>Wellcome and play this web application template ...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 hour ago</small>
-      <strong class="block">Jonathan George</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">2 hours ago</small>
-      <strong class="block">Josh Long</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 day ago</small>
-      <strong class="block">Jack Dorsty</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 days ago</small>
-      <strong class="block">Morgen Kntooh</strong>
-      <small>Mobile first web app for startup...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">Jun 21</small>
-      <strong class="block">Yoha Omish</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">May 10</small>
-      <strong class="block">Gole Lido</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">Jan 2</small>
-      <strong class="block">Jonthan Snow</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item" href="#email-content" data-toggle="class:show">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 minuts ago</small>
-      <strong class="block">Drew Wllon</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 hour ago</small>
-      <strong class="block">Jonathan George</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">2 hours ago</small>
-      <strong class="block">Josh Long</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 day ago</small>
-      <strong class="block">Jack Dorsty</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 days ago</small>
-      <strong class="block">Morgen Kntooh</strong>
-      <small>Mobile first web app for startup...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">Jun 21</small>
-      <strong class="block">Yoha Omish</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">May 10</small>
-      <strong class="block">Gole Lido</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">Jan 2</small>
-      <strong class="block">Jonthan Snow</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item" href="#email-content" data-toggle="class:show">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 minuts ago</small>
-      <strong class="block">Drew Wllon</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec sodales nisi nec sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 hour ago</small>
-      <strong class="block">Jonathan George</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">2 hours ago</small>
-      <strong class="block">Josh Long</strong>
-      <small>Vestibulum ullamcorper sodales nisi nec...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar_default.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">1 day ago</small>
-      <strong class="block">Jack Dorsty</strong>
-      <small>Morbi nec nunc condimentum...</small>
-    </a>
-  </li>
-  <li class="list-group-item">
-    <a href="#" class="thumb-sm pull-left m-r-sm">
-      <img src="/images/avatar.jpg" class="img-circle">
-    </a>
-    <a href="#" class="clear">
-      <small class="pull-right">3 days ago</small>
-      <strong class="block">Morgen Kntooh</strong>
-      <small>Mobile first web app for startup...</small>
-    </a>
-  </li>
-  </ul>
-  </div>
-  <div class="tab-pane" id="events">
-    <div class="text-center wrapper">
-      <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
+    <div class="pcs-notelist">
+    <ul class="list-group no-radius m-b-none m-t-n-xxs list-group-lg no-border">
+      <li class="list-group-item">
+        <a href="#" class="clear">
+          <small class="pull-right">3 minuts ago</small>
+          <strong class="block">Drew Wllon</strong>
+          <p class="text-muted">
+            <small>Wellcome and play this web application template. Morbi nec nunc condimentum. Morbi nec nunc condimentum ...</small>
+          </p>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" class="clear">
+          <small class="pull-right">1 hour ago</small>
+          <strong class="block">Jonathan George</strong>
+          <p class="text-muted">
+            <small>Morbi nec nunc condimentum...</small>
+          </p>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" class="clear">
+          <small class="pull-right">2 hours ago</small>
+          <strong class="block">Josh Long</strong>
+          <p class="text-muted">
+            <small>Vestibulum ullamcorper sodales nisi nec...</small>
+          </p>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" class="clear">
+          <small class="pull-right">1 day ago</small>
+          <strong class="block">Jack Dorsty</strong>
+          <p class="text-muted">
+            <small>Morbi nec nunc condimentum...</small>
+          </p>
+        </a>
+      </li>
+      <li class="list-group-item">
+        <a href="#" class="clear">
+          <small class="pull-right">3 days ago</small>
+          <strong class="block">Morgen Kntooh</strong>
+          <p class="text-muted">
+            <small>Mobile first web app for startup...</small>
+          </p>
+        </a>
+      </li>
+    </ul>
     </div>
-  </div>
-  <div class="tab-pane" id="interaction">
-    <div class="text-center wrapper">
-      <i class="fa fa-spinner fa fa-spin fa fa-large"></i>
-    </div>
-  </div>
-  </div>
   </section>
 </template>
 
-<template name="mockup_team_conversation_detail">
+<template name="mockup_team_note_detail">
 
   <aside class="col-lg-6 b-l">
     <section class="vbox">
