@@ -139,10 +139,19 @@
       </li>
       <li>
 
-        <a href="members" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. right?" role="button" data-original-title="A Title">
-          <i class="fa fa-users"></i>
-          <span>Members</span>
-        </a>
+              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+                <i class="fa fa-users"></i>
+                <span>members</span>
+              </a>
+              <section class="dropdown-menu m-t-xs pull-left" style="top: -60px; left:45px;">
+                <div class="arrow left"></div>
+                <li> <a href="profile.html">Profile</a> </li>
+                <li> <a href="#"> <span class="badge bg-danger pull-right">3</span> Notifications </a> </li>
+                <li> <a href="#">Account Settings</a> </li>
+                <li> <a href="docs.html">Help</a> </li>
+                <li class="divider"></li>
+                <li> <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a> </li>
+              </section>
       </li>
 
       <li>
@@ -163,6 +172,25 @@
   <div class="modal-dialog flat-dialog">
     <div class="modal-content">
       <section class="panel">
+        <header class="panel-heading bg-dark">
+          <div class="h3 m-t-xs m-b-lg">
+            Project Settings
+          </div>
+          <ul class="nav nav-tabs nav-justified text-uc">
+            <li class="active">
+              <a href="#">Basic Setting</a>
+            </li>
+            <li>
+              <a href="#">Members</a>
+            </li>
+            <li>
+              <a href="#">Something Else</a>
+            </li>
+            <li>
+              <a href="#">Something Else</a>
+            </li>
+          </ul>
+        </header>
         <div class="panel-body">
           <div class="clearfix text-center m-t">
             <div class="inline">
