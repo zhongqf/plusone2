@@ -16,10 +16,10 @@
 
 <template name="mockup_main_nav">
 
-  <aside class="aside aside-md bg-dark dker">
+  <aside class="aside aside-md bg-black dker">
     <section class="vbox">
       <section>
-        <div class="bg-dark dker hidden-xs pcs-sidenav-container" id="global_user_nav">
+        <div class="hidden-xs pcs-sidenav-container" id="global_user_nav">
           <header class="clearfix">
             <div class="pull-right">
               <a class="dropdown-toggle btn btn-xs btn-default" href="" data-toggle="dropdown">
@@ -104,7 +104,7 @@
 
 
 <template name="mockup_second_nav">
-  <aside class="bg-dark lter only-icon nav-vertical no-borders" id="nav" style="width: 50px;">
+  <aside class="bg-black only-icon nav-vertical no-borders" id="nav" style="width: 50px;">
   <nav class="nav-primary hidden-xs">
     <ul class="nav">
       <li>
@@ -139,19 +139,75 @@
       </li>
       <li>
 
-              <a class="dropdown-toggle" href="#" data-toggle="dropdown">
-                <i class="fa fa-users"></i>
-                <span>members</span>
-              </a>
-              <section class="dropdown-menu m-t-xs pull-left" style="top: -60px; left:45px;">
-                <div class="arrow left"></div>
-                <li> <a href="profile.html">Profile</a> </li>
-                <li> <a href="#"> <span class="badge bg-danger pull-right">3</span> Notifications </a> </li>
-                <li> <a href="#">Account Settings</a> </li>
-                <li> <a href="docs.html">Help</a> </li>
-                <li class="divider"></li>
-                <li> <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a> </li>
+          <a class="dropdown-toggle" href="#" data-toggle="dropdown">
+            <i class="fa fa-users"></i>
+            <span>Members</span>
+          </a>
+          <section class="dropdown-menu m-l-sm pull-left animated fadeInRight" style="width:280px;left:42px;top:0px;">
+              <div class="arrow left" style="top: 25px"></div>
+              <section class="panel bg-white">
+                  <header class="panel-heading">
+                      <a href="#" class="pull-right">
+                          <i class="fa fa-cog"></i>
+                      </a>
+                      <strong>10 members</strong>
+                  </header>
+                  <div class="list-group">
+                      <div class="media list-group-item">
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                          <a href="#">
+                              <span class="pull-left thumb-sm m-r-xs m-b-xs">
+                                  <img src="/images/avatar.jpg" alt="John said" class="img-circle">
+                              </span>
+                          </a>
+                      </div>
+                  </div>
               </section>
+          </section>
       </li>
 
       <li>
@@ -173,9 +229,6 @@
     <div class="modal-content">
       <section class="panel">
         <header class="panel-heading bg-dark">
-          <div class="h3 m-t-xs m-b-lg">
-            Project Settings
-          </div>
           <ul class="nav nav-tabs nav-justified text-uc">
             <li class="active">
               <a href="#">Basic Setting</a>
