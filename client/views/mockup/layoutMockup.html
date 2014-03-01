@@ -138,22 +138,68 @@
         </a>
       </li>
       <li>
-        <a href="members">
+
+        <a href="members" data-toggle="popover" title="" data-content="And here's some amazing content. It's very engaging. right?" role="button" data-original-title="A Title">
           <i class="fa fa-users"></i>
           <span>Members</span>
         </a>
       </li>
+
       <li>
-        <a href="settings">
+        <a href="settings" onclick='javascript: $("#myModal").modal(); return 0;'>
           <i class="fa fa-cog"></i>
           <span>Settings</span>
         </a>
+        <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+          {{> oooooo }}
+        </div>
       </li>
     </ul>
   </nav>
   </aside>
 </template>
 
+<template name="oooooo">
+  <div class="modal-dialog flat-dialog">
+    <div class="modal-content">
+      <section class="panel">
+        <div class="panel-body">
+          <div class="clearfix text-center m-t">
+            <div class="inline">
+              <div class="thumb-lg">
+                <img src="/images/avatar.jpg" class="img-circle">
+              </div>
+              <div class="h4 m-t m-b-xs">John.Smith</div>
+              <small class="text-muted m-b">Art director</small>
+            </div>
+          </div>
+        </div>
+        <footer class="panel-footer bg-dark lter text-center">
+          <div class="row pull-out">
+            <div class="col-xs-4">
+              <div class="padder-v">
+                <span class="m-b-xs h4 block">245</span>
+                <small class="text-muted">Followers</small>
+              </div>
+            </div>
+            <div class="col-xs-4 bg-success">
+              <div class="padder-v">
+                <span class="m-b-xs h4 block">55</span>
+                <small class="text-muted">Following</small>
+              </div>
+            </div>
+            <div class="col-xs-4">
+              <div class="padder-v">
+                <span class="m-b-xs h4 block">2,035</span>
+                <small class="text-muted">Tweets</small>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </section>
+    </div>
+  </div>
+</template>
 
 <template name="mockup_page_container">
   <aside class="bg-white">

@@ -1,15 +1,25 @@
 Template.body.rendered = ->
-  $(".text-multiline-ellipsis").dotdotdot()
+  #$(".text-multiline-ellipsis").dotdotdot()
 
-  setScrollbarStyle = ->
-    $(".scrollable").each ->
-      if (this.scrollHeight > this.offsetHeight)
-        $(this).addClass("has-scrollbar")
+  #setScrollbarStyle = ->
+  #  $(".scrollable").each ->
+  #    if (this.scrollHeight > this.offsetHeight)
+  #      $(this).addClass("has-scrollbar")
 
-  $(window).resize -> setScrollbarStyle()
+  #$(window).resize -> setScrollbarStyle()
 
 
-  setScrollbarStyle()
+  #setScrollbarStyle()
+
+
+
+  #popover
+  $("[data-toggle=popover]").popover()
+
+  $(document).on 'click', '.popover-title .close', (e)->
+    $target = $(e.target)
+    $popover = $target.closest('.popover').prev()
+    $popover && $popover.popover('hide')
 
 
 
