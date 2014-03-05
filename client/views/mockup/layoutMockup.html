@@ -146,14 +146,8 @@
           <section class="dropdown-menu m-l-sm pull-left animated fadeInRight" style="width:280px;left:42px;top:0px;">
               <div class="arrow left" style="top: 25px"></div>
               <section class="panel bg-white">
-                  <header class="panel-heading">
-                      <a href="#" class="pull-right">
-                          <i class="fa fa-cog"></i>
-                      </a>
-                      <strong>10 members</strong>
-                  </header>
                   <div class="list-group">
-                      <div class="media list-group-item">
+                      <div class="media list-group-item" style="border:none;">
                           <a href="#">
                               <span class="pull-left thumb-sm m-r-xs m-b-xs">
                                   <img src="/images/avatar.jpg" alt="John said" class="img-circle">
@@ -206,6 +200,12 @@
                           </a>
                       </div>
                   </div>
+                  <footer class="panel-footer">
+                      <a href="#" class="pull-right">
+                          <i class="fa fa-cog"></i>
+                      </a>
+                      <strong>10 members</strong>
+                  </footer>
               </section>
           </section>
       </li>
@@ -216,7 +216,7 @@
           <span>Settings</span>
         </a>
         <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-          {{> oooooo }}
+          {{> mockup_settings_dialog }}
         </div>
       </li>
     </ul>
@@ -224,14 +224,14 @@
   </aside>
 </template>
 
-<template name="oooooo">
+<template name="mockup_settings_dialog">
   <div class="modal-dialog flat-dialog">
     <div class="modal-content">
       <section class="panel">
         <header class="panel-heading bg-dark">
           <ul class="nav nav-tabs nav-justified text-uc">
             <li class="active">
-              <a href="#">Basic Setting</a>
+              <a href="#">General</a>
             </li>
             <li>
               <a href="#">Members</a>
@@ -245,38 +245,37 @@
           </ul>
         </header>
         <div class="panel-body">
-          <div class="clearfix text-center m-t">
-            <div class="inline">
-              <div class="thumb-lg">
-                <img src="/images/avatar.jpg" class="img-circle">
+          <div class="wrapper">
+            <form role="form">
+              <div class="form-group">
+                <label>Project name:</label>
+                <input type="email" class="form-control">
               </div>
-              <div class="h4 m-t m-b-xs">John.Smith</div>
-              <small class="text-muted m-b">Art director</small>
-            </div>
+              <div class="form-group">
+                <label>Identifier:</label>
+                <input type="text" class="form-control">
+              </div>
+              <div class="form-group">
+                <label>Visibility:</label>
+	            <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                    Option one is this and that—be sure to include why it's great
+                  </label>
+                </div>
+	            <div class="radio">
+                  <label>
+                    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked="">
+                    Option one is this and that—be sure to include why it's great
+                  </label>
+                </div>
+              </div>
+              <div class="m-t-lg">
+              	<button type="submit" class="btn btn btn-success pull-right">Save Settings</button>
+              </div>
+            </form>
           </div>
         </div>
-        <footer class="panel-footer bg-dark lter text-center">
-          <div class="row pull-out">
-            <div class="col-xs-4">
-              <div class="padder-v">
-                <span class="m-b-xs h4 block">245</span>
-                <small class="text-muted">Followers</small>
-              </div>
-            </div>
-            <div class="col-xs-4 bg-success">
-              <div class="padder-v">
-                <span class="m-b-xs h4 block">55</span>
-                <small class="text-muted">Following</small>
-              </div>
-            </div>
-            <div class="col-xs-4">
-              <div class="padder-v">
-                <span class="m-b-xs h4 block">2,035</span>
-                <small class="text-muted">Tweets</small>
-              </div>
-            </div>
-          </div>
-        </footer>
       </section>
     </div>
   </div>
