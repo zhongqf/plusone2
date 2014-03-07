@@ -13,6 +13,8 @@ Template.body.rendered = ->
 
 
 
+  $("[data-toggle=tooltip]").tooltip({container: 'body'})
+  
   #popover
   $("[data-toggle=popover]").popover()
 
