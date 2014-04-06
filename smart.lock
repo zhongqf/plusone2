@@ -16,8 +16,8 @@
     "packages": {
       "bootstrap3-less": {
         "git": "https://github.com/eprochasson/bootstrap3-less",
-        "tag": "v0.1.4",
-        "commit": "23ec918f8377b15b22cba33e13b717214235c88a"
+        "tag": "v0.1.9",
+        "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       },
       "router": {
         "git": "https://github.com/tmeasday/meteor-router.git",
@@ -36,8 +36,8 @@
       },
       "select2": {
         "git": "https://github.com/nate-strauser/meteor-select2.git",
-        "tag": "v3.4.3",
-        "commit": "fbe1f33800c90ecdfdcec529970382f8781e3988"
+        "tag": "v3.4.5",
+        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
       },
       "fake": {
         "git": "https://github.com/subhog/meteor-fake.git",
@@ -51,13 +51,13 @@
       },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.6.1",
-        "commit": "4e1ee0581d68bff422a915dacb0bd30eae10fe08"
+        "tag": "v0.7.0",
+        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
       },
       "scss": {
         "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.7.0",
-        "commit": "39f60d58c2b890bdd897ef52188644f3093fc2ac"
+        "tag": "v0.8.4",
+        "commit": "11af0da643944d241fe7d173af76162c4b670dee"
       },
       "chance": {
         "git": "https://github.com/jvanveen/meteor-chance.git",
@@ -73,6 +73,11 @@
         "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
         "tag": "v4.0.0",
         "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      },
+      "blaze-layout": {
+        "git": "https://github.com/EventedMind/blaze-layout.git",
+        "tag": "v0.2.2",
+        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
       }
     }
   }

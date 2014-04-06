@@ -312,47 +312,95 @@ form {
     }
   }
 
+
+  &:hover {
+    .pcs-addtask {
+      opacity: 1;
+    }
+  }
+}
+
+.pcs-task-item {
+  position: relative;
+  display: block;
+
+  padding-top: 7px;
+  padding-bottom: 7px;
+  padding-left: 25px;
+  padding-right: 15px;
+
+  margin-bottom: -1px;
+
+  border: 1px solid #ebeff6;
+  background-color: #ffffff;
+
   .checkbox-custom {
     margin-left: 0px;
     display: inline;
   }
 
-  .list-group-item {
-    padding-top: 7px;
-    padding-bottom: 7px;
-    padding-left: 25px;
-
-    .pcs-dragger {
-      top: 11px;
-      display: none;
-    }
-
-    &:hover {
-      .pcs-dragger {
-        display: inline-block;
-      }
-    }
-
-    a.thumb-xs-l {
-      margin-top: -3px;
-    }
-
-    &.pcs-addtask {
-      border-bottom: none;
-      padding-top: 5px;
-      padding-bottom: 5px;
-      opacity: 0;
-    }
+  .pcs-dragger {
+    top: 11px;
+    display: none;
   }
 
   &:hover {
-    .list-group-item {
-      &.pcs-addtask {
-        opacity: 1;
-      }
+    .pcs-dragger {
+      display: inline-block;
     }
   }
+
+  a.thumb-xs-l {
+    margin-top: -3px;
+  }
+
+  &.pcs-addtask {
+    border-bottom: none;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    opacity: 0;
+  }
 }
+
+.feed-body-inner {
+  .pcs-task-item {
+    padding-left: 10px;
+    border-left-width: 0;
+    border-right-width: 0;
+    border-top-width: 1px;
+    border-bottom-width: 1px;
+    border-color: #fcfcfc;
+  }
+}
+
+//Task Item
+//.pcs-task-item {
+//  position: relative;
+//  display: block;
+//
+//  margin-bottom: -1px;
+//
+//  padding-top: 7px;
+//  padding-bottom: 7px;
+//  padding-left: 15px;
+//  padding-right: 15px;
+//
+//  border: 1px solid #ebeff6;
+//  border-right-width: 0;
+//  border-left-width: 0;
+//  background-color: #ffffff;
+//
+//  .checkbox-custom {
+//    margin-left: 0px;
+//    display: inline;
+//  }
+//
+//  a.thumb-xs-l {
+//    margin-top: -3px;
+//  }
+//}
+
+
 //Task Deatil
 .pcs-task {
   position: relative;
@@ -419,12 +467,13 @@ form {
 }
 
 
-//Comments
-.comment-list:before {
+//Feeds && Comments
+.feed-list:before {
   content: none;
 }
-.comment-list .comment-item {
-  .comment-body{
+.feed-list .feed-item {
+  .feed-body{
+    margin-left: 46px;
     margin-bottom: 1em;
     p {
       margin-bottom: 0em;
@@ -435,6 +484,10 @@ form {
         margin-top: 0;
       }
     }
+
+    .feed-body-inner {
+      margin-top: 1em;
+    }
   }
 
 
@@ -444,12 +497,17 @@ form {
 
 }
 
-.comment-item-simple {
+.feed-item.activity-item {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.feed-item.comment-item-simple {
   a {
     color: #979797;
   }
 
-  & + .comment-item-simple {
+  & + .feed-item.comment-item-simple {
     border-top: 0px;
     margin-top: -2em;
   }
