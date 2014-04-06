@@ -1,20 +1,20 @@
-<template name="layoutMockup">
+<template name="layoutBasic">
   <section class="hbox stretch">
-    {{> mockup_global_nav}}
-    {{> mockup_page_container }}
+    {{> layoutBasicGlobalNav}}
+    {{> layoutBasicPageContainer }}
   </section>
 </template>
 
-<template name="mockup_global_nav">
+<template name="layoutBasicGlobalNav">
   <aside class="aside" style="width: 250px;">
     <section class="hbox stretch">
-      {{> mockup_main_nav }}
-      {{> mockup_second_nav }}
+      {{> layoutBasicMainNav }}
+      {{> layoutBasicSecondNav }}
     </section>
   </aside>
 </template>
 
-<template name="mockup_main_nav">
+<template name="layoutBasicMainNav">
 
   <aside class="aside aside-md bg-black dker">
     <section class="vbox">
@@ -103,7 +103,7 @@
 </template>
 
 
-<template name="mockup_second_nav">
+<template name="layoutBasicSecondNav">
   <aside class="bg-black only-icon nav-vertical no-borders" id="nav" style="width: 50px;">
   <nav class="nav-primary hidden-xs">
     <ul class="nav">
@@ -251,14 +251,14 @@
   </nav>
   </aside>
   <div class="modal" id="profileModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    {{> mockup_profile_dialog }}
+    {{> layoutBasicProfileDialog }}
   </div>
   <div class="modal " id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    {{> mockup_settings_dialog }}
+    {{> layoutBasicSettingsDialog }}
   </div>
 </template>
 
-<template name="mockup_profile_dialog">
+<template name="layoutBasicProfileDialog">
   <div class="modal-dialog flat-dialog">
     <div class="modal-content">
       <section class="panel bg-light lter">
@@ -316,7 +316,7 @@
 
 </template>
 
-<template name="mockup_settings_dialog">
+<template name="layoutBasicSettingsDialog">
   <div class="modal-dialog flat-dialog">
     <div class="modal-content">
       <section class="panel">
@@ -373,7 +373,7 @@
   </div>
 </template>
 
-<template name="mockup_page_container">
+<template name="layoutBasicPageContainer">
   <aside class="bg-white">
     {{> yield }}
   </aside>
