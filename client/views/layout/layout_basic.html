@@ -31,13 +31,15 @@
                 <li> <a href="#">Account Settings</a> </li>
                 <li> <a href="docs.html">Help</a> </li>
                 <li class="divider"></li>
-                <li> <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a> </li>
+                <li> <a href="#" class="pcs-logout">Logout</a> </li>
               </ul>
             </div>
             <a href="#">
               <span class="thumb-sm avatar pull-left m-r-sm" style="width: 28px;"> <img src="/images/avatar.jpg"> </span>
           <span class="hidden-nav-xs clear" style="padding-top: 5px;">
-            <strong>John.Smith</strong>
+            {{#with currentUser}}
+              <strong>{{profile.name}}</strong>
+            {{/with}}
           </span>
             </a>
           </header>
@@ -51,7 +53,7 @@
               <i class="fa fa-tasks  fa-fw"></i>
               My Items
             </a></li>
-            <li><a href="#">
+            <li><a href="/mockup/chat">
               <i class="fa fa-comment  fa-fw"></i>
               Group Chat
             </a></li>
@@ -108,31 +110,31 @@
   <nav class="nav-primary hidden-xs">
     <ul class="nav">
       <li>
-        <a href="activities">
+        <a href="/mockup/team/activities">
           <i class="fa fa-list-ul"></i>
           <span>Activities</span>
         </a>
       </li>
       <li class="active">
-        <a href="conversations">
+        <a href="/mockup/team/conversations">
           <i class="fa fa-comments"></i>
           <span>Conversations</span>
         </a>
       </li>
       <li>
-        <a href="tasks">
+        <a href="/mockup/team/tasks">
           <i class="fa fa-check-square-o"></i>
           <span>Tasks</span>
         </a>
       </li>
       <li>
-        <a href="notes">
+        <a href="/mockup/team/notes">
           <i class="fa fa-file-text"></i>
           <span>Notes</span>
         </a>
       </li>
       <li>
-        <a href="files">
+        <a href="/mockup/team/files">
           <i class="fa fa-paperclip"></i>
           <span>Files</span>
         </a>

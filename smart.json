@@ -1,14 +1,9 @@
 {
   "packages": {
     "bootstrap3-less": {},
-    "router": {},
-    "jquery-ui": {},
     "momentjs": {},
-    "select2": {},
-    "fake": {},
-    "mini-pages": {},
     "iron-router": {},
-    "scss": {},
-    "chance": {}
+    "chance": {},
+    "iron-router-auth": {}
   }
 }

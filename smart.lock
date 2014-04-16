@@ -3,15 +3,10 @@
   "dependencies": {
     "basePackages": {
       "bootstrap3-less": {},
-      "router": {},
-      "jquery-ui": {},
       "momentjs": {},
-      "select2": {},
-      "fake": {},
-      "mini-pages": {},
       "iron-router": {},
-      "scss": {},
-      "chance": {}
+      "chance": {},
+      "iron-router-auth": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -19,65 +14,30 @@
         "tag": "v0.1.9",
         "commit": "5c812c4d7ce72917a065f0424c3cf54e5ff2d16a"
       },
-      "router": {
-        "git": "https://github.com/tmeasday/meteor-router.git",
-        "tag": "v0.5.4.1",
-        "commit": "d00e380dda2184b70e909fc4a0fb5358d602c586"
-      },
-      "jquery-ui": {
-        "git": "https://github.com/TimHeckel/meteor-jquery-ui.git",
-        "tag": "v1.9.2",
-        "commit": "c437d45edcf1367df8d5ffa8bad2867758030bd2"
-      },
       "momentjs": {
         "git": "https://github.com/crapthings/meteor-momentjs.git",
         "tag": "v2.1.0.2",
         "commit": "59a762e297082eea8b8cae00374c2b7ac6f89529"
       },
-      "select2": {
-        "git": "https://github.com/nate-strauser/meteor-select2.git",
-        "tag": "v3.4.5",
-        "commit": "4a8d05582b949a14f0ee217c185166abbf112822"
-      },
-      "fake": {
-        "git": "https://github.com/subhog/meteor-fake.git",
-        "tag": "v0.3.4",
-        "commit": "e5393ddad6fbee5638e5c430666693828b403abc"
-      },
-      "mini-pages": {
-        "git": "https://github.com/cmather/meteor-mini-pages.git",
-        "tag": "v0.3.2",
-        "commit": "4d885ffb6d0108ee2e47a13a6296c98a2f7b5059"
-      },
       "iron-router": {
         "git": "https://github.com/EventedMind/iron-router.git",
-        "tag": "v0.7.0",
-        "commit": "05f34bc48c4cad9fdaa366c1ddcabe6980232ece"
-      },
-      "scss": {
-        "git": "https://github.com/fourseven/meteor-scss.git",
-        "tag": "v0.8.4",
-        "commit": "11af0da643944d241fe7d173af76162c4b670dee"
+        "tag": "v0.7.1",
+        "commit": "d1ffb3f06ea4c112132b030f2eb1a70b81675ecb"
       },
       "chance": {
         "git": "https://github.com/jvanveen/meteor-chance.git",
         "tag": "v1.0.2",
         "commit": "c06db16783744e5c1f4c36668a14240086caa1c7"
       },
-      "page-js-ie-support": {
-        "git": "https://github.com/tmeasday/meteor-page-js-ie-support.git",
-        "tag": "v1.3.5",
-        "commit": "b99ed8380aefd10b2afc8f18d9eed4dd0d8ea9cb"
-      },
-      "HTML5-History-API": {
-        "git": "https://github.com/tmeasday/meteor-HTML5-History-API.git",
-        "tag": "v4.0.0",
-        "commit": "dc4965f1424cfca625ec3fbea17eace03f8e32c5"
+      "iron-router-auth": {
+        "git": "https://github.com/XpressiveCode/iron-router-auth.git",
+        "tag": "v0.2.0",
+        "commit": "f868799c5b6511813abe1b3d3ed29f25f10099a0"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
-        "tag": "v0.2.2",
-        "commit": "8bc53798fe5965669ae67c72f91829fcfdceabfd"
+        "tag": "v0.2.4",
+        "commit": "b40e9b0612329288d75cf52ad14a7da64bb8618f"
       }
     }
   }

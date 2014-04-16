@@ -1,0 +1,139 @@
+<template name="mockup_chat">
+
+  <section class="hbox stretch">
+    {{> mockup_team_conversation_list}}
+    {{> mockup_chat_content}}
+  </section>
+
+</template>
+
+
+<template name="mockup_chat_content">
+  <aside class="col-lg-6 b-l">
+    <section class="vbox">
+          <header class="wrapper">
+            <div class="clearfix">
+              <div class="btn-group m-b-sm pcs-toolbar pull-right">
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="fa fa-check-square-o fa-fw"></i>
+                </button>
+                <button type="button" class="btn btn-success btn-sm">
+                  <i class="fa fa-paperclip fa-fw"></i>
+                </button>
+                <button type="button" class="btn btn-default btn-sm">
+                  <i class="fa fa-star-o fa-fw"></i>
+                </button>
+                <div class="btn-group pull-right">
+                  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown">
+                    More <span class="caret"></span>
+                  </button>
+                  <ul class="dropdown-menu text-left text-sm">
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                    <li><a href="#">Dropdown link</a></li>
+                  </ul>
+                </div>
+              </div></div>
+          </header>
+
+        <section class="scrollable  w-f">
+          <section class="chat-list">
+            <div id="chat-id-1" class="chat-item right">
+              <a href="#" class="thumb-sm avatar"><img src="/images/avatar.jpg" class="img-circle"></a>
+              <div class="chat-body">
+                <p class="chat-message">
+                  Etiam laoreet, libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat,
+                  libero et tristique pellentesque, tellus sem mollis dui, in sodales elit erat.
+                </p>
+                <p class="chat-message">
+                  faucibus ut, nulla. Cras eu tellus
+                </p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">
+                  Tue, Oct 01
+                </p>
+              </div>
+            </div>
+            <div id="chat-id-2" class="chat-item">
+              <a href="#" class="thumb-sm avatar"><img src="/images/avatar.jpg" class="img-circle"></a>
+              <div class="chat-body">
+                <p class="chat-message">
+                  Kistique pellentesque, tellus sem mollis dui, in sodales elit erat.
+                </p>
+                <p class="chat-message">
+                  Cras eu tellus
+                </p>
+                <p class="chat-message">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                  Cum laudantium modi nobis provident quaerat quas tempore! Aspernatur blanditiis debitis dolores doloribus.
+                </p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">
+                  Tue, Oct 01
+                </p>
+              </div>
+            </div>
+            <div id="chat-id-3" class="chat-item right">
+              <a class="thumb-sm avatar" href=""><img class="img-circle" src="/images/avatar.jpg" alt=""/></a>
+              <div class="chat-body">
+                <p class="chat-message">Hi</p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">Tue, Oct 01</p>
+              </div>
+            </div>
+
+            <div id="chat-id-4" class="chat-item">
+              <a class="thumb-sm avatar" href=""><img class="img-circle" src="/images/avatar.jpg" alt=""/></a>
+              <div class="chat-body">
+                <p class="chat-message">Hi, Good evening</p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">Tue, Oct 01</p>
+              </div>
+            </div>
+
+            <div id="chat-id-5" class="chat-item">
+              <a class="thumb-sm avatar" href=""><img class="img-circle" src="/images/avatar.jpg" alt=""/></a>
+              <div class="chat-body">
+                <p class="chat-message">
+                  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Corporis cum cupiditate, dolorum ea harum incidunt inventore laboriosam mollitia nam nulla numquam officiis perspiciatis quae, quos ullam unde, veniam! Quos, totam?
+                </p>
+                <p class="chat-message">
+                  Great! Thanks!
+                </p>
+                <p class="chat-message">
+                  I will try in next release.
+                </p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">Mon, Nov 14</p>
+              </div>
+            </div>
+
+            <div id="chat-id-6" class="chat-item right">
+              <a class="thumb-sm avatar" href=""><img class="img-circle" src="/images/avatar.jpg" alt=""/></a>
+              <div class="chat-body">
+                <p class="chat-message">Ok. Good to hear that</p>
+                <p class="chat-message">Use, by you or one client, in a single end product which end users are not charged for.</p>
+                <span class="clearfix"></span>
+                <p class="chat-meta">Sun, Oct 22</p>
+              </div>
+            </div>
+          </section>
+        </section>
+
+      <footer style="padding-bottom: 10px; padding-right: 10px;">
+      <!-- chat form -->
+      <div class="chat-item" id="chat-form">
+        <div class="chat-body">
+          <form action="" class="m-b-none">
+            <div class="input-group">
+              <input type="text" class="form-control" placeholder="Say something">
+                                <span class="input-group-btn">
+                                  <button class="btn btn-success" type="button">Send</button>
+                                </span>
+            </div>
+          </form>
+        </div>
+      </div></footer>
+      </section>
+  </aside>
+</template>
