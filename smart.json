@@ -3,7 +3,6 @@
     "bootstrap3-less": {},
     "momentjs": {},
     "iron-router": {},
-    "chance": {},
-    "iron-router-auth": {}
+    "chance": {}
   }
 }

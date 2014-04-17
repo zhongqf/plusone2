@@ -5,8 +5,7 @@
       "bootstrap3-less": {},
       "momentjs": {},
       "iron-router": {},
-      "chance": {},
-      "iron-router-auth": {}
+      "chance": {}
     },
     "packages": {
       "bootstrap3-less": {
@@ -28,11 +27,6 @@
         "git": "https://github.com/jvanveen/meteor-chance.git",
         "tag": "v1.0.2",
         "commit": "c06db16783744e5c1f4c36668a14240086caa1c7"
-      },
-      "iron-router-auth": {
-        "git": "https://github.com/XpressiveCode/iron-router-auth.git",
-        "tag": "v0.2.0",
-        "commit": "f868799c5b6511813abe1b3d3ed29f25f10099a0"
       },
       "blaze-layout": {
         "git": "https://github.com/EventedMind/blaze-layout.git",
